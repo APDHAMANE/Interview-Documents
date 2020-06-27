@@ -1,0 +1,147 @@
+In Web Forms, URLs are mapped to the physical files.
+In MVC, URLs are mapped to the Controllers & Controller Action Methods.
+
+In a View, to switch between C# & HTML, use @ symbol.
+Can we have Overloaded Action Methods in MVC? Yes.
+
+To pass data from controller to a View, it's always a good practice to use Strongly Typed View Models
+We can pass data from controller to a View using following 3 methods:
+	1.ViewBag
+		e.g.
+			public ActionResult Index() {
+				ViewBag.Countries = new List<string>() //Countries is a Dynamic Expression/Property.
+				{
+						"India",
+						"US",
+						"UK",
+						"France"
+				};
+				return View();
+			}
+		and in Index.cshtmml,
+			<ul>
+				@foreach(string strCountry in ViewBag.Countries)
+				{
+					<li>@strCountry</li>
+				}
+			</ul>
+	2.ViewData
+		e.g.
+			public ActionResult Index() {
+				ViewData["Countries"] = new List<string>() //Countries is the Key.
+				{
+						"India",
+						"US",
+						"UK",
+						"France"
+				};
+				return View();
+			}
+		and in Index.cshtmml,
+			<ul>
+				@foreach(string strCountry in (List<string>())ViewData["Countries"]) //We need to typecast ViewData Key into required Type.
+				{
+					<li>@strCountry</li>
+				}
+			</ul>
+	3.ViewModel
+		e.g.
+			public IActionResult Index() {
+				EmployeeModel employeeModel = new EmployeeModel() { EmpId = 1, FirstName = "Anand", LastName = "Dhamane" };
+				return View(employeeModel);
+			}
+		and in Index.cshtmml,
+			@model Demo.Models.EmployeeModel
+			
+			@{
+				ViewData["Title"] = "Index";
+			}
+
+			<h1>Index</h1>
+
+			<div>
+				<table>
+					<tr>
+						<td>Employee Id:</td>
+						<td>@Model.EmpId</td>
+					</tr>
+					<tr>
+						<td>First Name:</td>
+						<td>@Model.FirstName</td>
+					</tr>
+					<tr>
+						<td>Last Name:</td>
+						<td>@Model.LastName</td>
+					</tr>
+				</table>
+			</div>
+
+Use ActionLink HTML Helper to create a HyperLink.
+	e.g. 
+		@Html.ActionLink("Link Text", "Action Method");
+		@Html.ActionLink("Link Text", "Action Method", new { id = @Model.Id });
+	 
+In case of a POST request, we have 3 methods/ways to pass data from a view to a Controller.
+	e.g.
+		[HttpPost]
+		public IActionResult Create(FormCollection formCollection) {
+			Student student = new Student();
+			student.FirstName = formCollection["FirstName"];
+			student.LastName = formCollection["LastName"];
+			
+			using(SampleEntities sampleEntities = new SampleEntities()) {
+				sampleEntities.Students.Add(student);
+				sampleEntities.SaveChanges();
+			}
+		}
+		
+		or
+		
+		[HttpPost]
+		//The parameter names should match with the Control Names in the View.
+		//Model Binder - Maps Control Names with the parameter names of the Action Method.
+		public IActionResult Create(string FirstName, string LastName) {
+			Student student = new Student();
+			student.FirstName = FirstName;
+			student.LastName = LastName;
+			
+			using(SampleEntities sampleEntities = new SampleEntities()) {
+				sampleEntities.Students.Add(student);
+				sampleEntities.SaveChanges();
+			}
+		}
+		
+		or 
+		
+		[HttpPost]
+		//The View must be Strongly Typed with the Model.
+		public IActionResult Create(Student student) {
+			using(SampleEntities sampleEntities = new SampleEntities()) {
+				sampleEntities.Students.Add(student);
+				sampleEntities.SaveChanges();
+			}
+		}
+		
+		or
+		
+		We can also make use of UpdateModel() method.
+		Suppose, we have GET & POST methods for the same action i.e. Create. We can't have 2 methods with the same name & signature 
+		& differentiate them just by adding [HttpPost] & [HttpGet] attributes. It'll give compile time error.
+		To avoid this error we can make use of [ActionName("")] attribute.
+		
+		[HttpGet]
+		public IActionResult Create() {
+			return View();
+		}
+		
+		[HttpPost]
+		[ActionName("Create")] // The following Action Method will be invoked when we POST the Create Action Method from the browser.
+		public IActionResult Create_Post() {
+			Student student = new Student();
+			UpdateModel(student);
+			
+			using(SampleEntities sampleEntities = new SampleEntities()) {
+				sampleEntities.Students.Add(student);
+				sampleEntities.SaveChanges();
+			}
+		}
