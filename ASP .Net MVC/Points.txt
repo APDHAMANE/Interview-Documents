@@ -145,3 +145,58 @@ In case of a POST request, we have 3 methods/ways to pass data from a view to a 
 				sampleEntities.SaveChanges();
 			}
 		}
+		
+*
+If we don't want to bind some properties of a Model then we can use an overloaded version of UpdateModel() & TryUpdateModel() methods
+which accepts String[] includeProperties and String[] excludeProperties. This is what called as White list & Black list respectively.
+	e.g. In the following example, we have included only FirstName, LastName, Age, DepartmentId & not the Id property.
+		 So if we provide a new value to Id property & try to update the following record using Fiddler, We won't be able to succeed.
+		 Similarly, We can also specify the properties which needs to be excluded from Model Binding. Use another overloaded method.
+		 
+		[HttpPost]
+        [ActionName("Edit")]
+        public ActionResult Edit_Post(Student student) {
+            //By using Fiddler, We can also update the Id of a Student object.
+            //To avoid this, we can explicitly specify only the members which needs to be updated using IncludeProperties.
+            
+            TryUpdateModel(student, new string[] { "FirstName", "LastName", "Age", "DepartmentId" });
+            
+			if (ModelState.IsValid) {
+                using (SampleEntities sampleEntities = new SampleEntities()) {
+                    Student s = sampleEntities.Students.Single(Stud => Stud.Id == student.Id);
+                    s.Id = student.Id;
+                    s.FirstName = student.FirstName;
+                    s.LastName = student.LastName;
+                    s.Age = student.Age;
+                    s.DepartmentId = student.DepartmentId;
+                    sampleEntities.SaveChanges();
+                }
+
+                return RedirectToAction("AllEmployeesList");
+            }
+            return View();
+        }
+		
+We can also mention the Include & Exclude properties using Bind Attribute.
+	e.g.
+		[HttpPost]
+        [ActionName("Edit")]
+        public ActionResult Edit_Post([Bind(Exclude="Id", Include="FirstName", "LastName", "Age", "DepartmentId"]Student student) {
+            
+            TryUpdateModel(student);
+            
+			if (ModelState.IsValid) {
+                using (SampleEntities sampleEntities = new SampleEntities()) {
+                    Student s = sampleEntities.Students.Single(Stud => Stud.Id == student.Id);
+                    s.Id = student.Id;
+                    s.FirstName = student.FirstName;
+                    s.LastName = student.LastName;
+                    s.Age = student.Age;
+                    s.DepartmentId = student.DepartmentId;
+                    sampleEntities.SaveChanges();
+                }
+
+                return RedirectToAction("AllEmployeesList");
+            }
+            return View();
+        }

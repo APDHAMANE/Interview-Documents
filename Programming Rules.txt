@@ -1,0 +1,8 @@
+1. Always check for NULL before using any object.
+2. Avoid too many If or Switch statements.
+3. Always have an interface associated with a class.
+4. Avoid Global state (Variables / Objects).
+5. Separate creational logic from business logic.
+6. Always use Dependency Injection.
+7. The Law of Demeter (Please check the following video: http://www.youtube.com/watch?v=RlfLCWKxHJ0)
+8. No Long Methods. (Every method should fit in a screen without vertical scrolling.)

@@ -1,0 +1,7 @@
+DRY: Don't Repeat Yourself. It's a concept in programming that speaks about productivity, and readability. Inheritance reduces or eliminates the need for repeated 
+code.
+
+Complexity. OOP reduces the complexity of the code in a program (or at least, it should...). By using inheritance, your code is again, not repeated, and easier to 
+decipher.
+
+Maintenance. In maintaining a solution, inheritance helps out a great deal when implemented correctly.

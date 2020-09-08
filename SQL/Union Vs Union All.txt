@@ -1,0 +1,12 @@
+UNION
+The UNION command is used to select related information from two tables, much like the JOIN command. However, when using the UNION command all selected columns 
+need to be of the same data type. With UNION, only distinct values are selected.
+
+UNION ALL
+The UNION ALL command is equal to the UNION command, except that UNION ALL selects all values.
+
+The difference between Union and Union all is that Union all will not eliminate duplicate rows, instead it just pulls all rows from all tables fitting your query 
+specifics and combines them into a table.
+
+A UNION statement effectively does a SELECT DISTINCT on the results set. If you know that all the records returned are unique from your union, 
+use UNION ALL instead, it gives faster results.

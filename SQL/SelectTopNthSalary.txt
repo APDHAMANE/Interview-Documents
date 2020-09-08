@@ -1,0 +1,25 @@
+The following solution is for getting 6th highest salary from Employee table ,
+
+SELECT TOP 1 salary
+FROM (
+	SELECT DISTINCT TOP 6 salary
+	FROM employee
+	ORDER BY salary DESC) a
+ORDER BY salary
+
+You can change and use it for getting nth highest salary from Employee table as follows
+
+SELECT TOP 1 salary
+FROM (
+	SELECT DISTINCT TOP n salary
+	FROM employee
+	ORDER BY salary DESC) a
+ORDER BY salary
+
+where n > 1 (n is always greater than one)
+-------------------------------------------------------------
+SELECT MIN(Sal) FROM TableName
+WHERE Sal IN
+(SELECT TOP N Sal FROM TableName ORDER BY Sal DESC)
+
+where n > 1 (n is always greater than one).

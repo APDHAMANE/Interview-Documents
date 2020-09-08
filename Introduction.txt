@@ -2,7 +2,7 @@ Hi,
 Myself Anand Dhamne.
 
 I have 6.7 years of experience in developing web applications especially using Microsoft .Net Technologies & SQL Server. Other than .Net Technologies, 
-I have also worked with Javascript, GIT & Tortoise SVN.
+I have also worked with Javascript, Crystal Reports, CyberArk. I also know tools like GIT, Tortoise SVN, JIRA & Postman.
 I have been working with Persistent Systems as Module Lead since December 2017 from where i got exposure to complete software life cycle starting 
 from requirement gathering till delivery. I am quite happy with my current job. But i am looking for a more productive role that suit my skills 
 & ability to grow further. I am a quick learner & ready to take new challenges required to perform better.
