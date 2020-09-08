@@ -1,0 +1,1029 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+	<title>ASP.NET Application and Page Life Cycle - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/Main.css">
+<link type="text/css" rel="stylesheet" href="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/print.css">
+
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Description" content="ASP.NET application and page life cycle ; Author: Shivprasad &lt;b&gt;koirala&lt;/b&gt;; Updated: 9 Feb 2013; Section: ASP.NET; Chapter: Web Development; Updated: 9 Feb 2013">
+<meta name="Keywords" content="ASP.NET, Dev,ASP.NET,Web Development,Free source code, tutorials">
+<meta name="Author" content="Shivprasad &lt;b&gt;koirala&lt;/b&gt;">
+<meta name="Rating" content="General">
+<meta name="Robots" content="index, follow, NOODP">
+<meta name="Revisit-After" content="1 days">
+<meta name="application-name" content="CodeProject">
+
+<link rel="dns-prefetch" href="http://ajax.googleapis.com/"> 
+<link rel="canonical" href="http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle">
+
+
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All Topics" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Android" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=22">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC/C++" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=6">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Mobile" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=18">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+
+	<!-- base href="http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle?display=Print" -->
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script type="text/javascript" language="Javascript">//<![CDATA[
+function defrm () { /* thanks twitter */ document.write = ''; window.top.location = window.self.location;  setTimeout(function() { document.body.innerHTML = ''; }, 0);  window.self.onload = function(evt) { document.body.innerHTML = ''; }; }if (window.top !== window.self) {  try {  if (window.top.location.host) { /* will throw */ } else { defrm(); /* chrome */ }  } catch (ex) { defrm(); /* everyone else */ } }if (typeof(DemoUrl)!='undefined')   document.write(unescape('%3Cme')+'ta http'+'-equiv="re'+'fresh"                  con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+
+//]]>
+</script>
+
+	
+
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1735123-1']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'www.codeproject.com']);
+	_gaq.push(['_setSessionTimeout', '1200']); 
+
+	(function () {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})(); 
+</script><script src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/ga.js" async="" type="text/javascript"></script>
+
+
+</head>	
+
+<body class="firefox firefox25">
+
+<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/t.gif"></a>
+
+
+
+
+
+<div class="page-background">
+
+	
+	
+
+	
+<div class="alert-bar  overlay " style="display: none;">
+	<a href="#" class="close-notify">×</a>
+	<div>Sign up for our free weekly <a href="http://www.codeproject.com/feature/web-newsletter">Web Developer Newsletter</a>.</div>
+</div>
+
+	<table id="ctl00_Bn" style="width:100%;height:135px" class="banner fluid" cellpadding="0" cellspacing="0">
+	<tbody><tr valign="bottom">
+		<td class="blank-background" style="height:31px">&nbsp;</td>
+		<td class="blank-background" rowspan="3" style="width:250px;height:135px"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" tabindex="1" title="CodeProject" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/logo250x135.gif" alt="Home" style="height:135px;width:250px;border-width:0px;"></a></td>
+		<td class="blank-background align-right" style="width:728px;height:31px"></td>
+		<td class="blank-background" style="height:31px">&nbsp;</td>
+	</tr>
+	<tr valign="middle">
+		<td class="theme1-background" style="height:94px">&nbsp;</td>
+		<td class="theme1-background ad"></td>
+		<td class="theme1-background" style="height:94px">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td style="height: 10px;"></td>
+		<td style="height: 10px;" class="blank-background"></td>
+		<td style="height: 10px;"></td>
+	</tr>
+</tbody></table>
+
+
+	<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/t.gif"></a>
+
+	
+	
+	
+
+	<div id="A" class="container-content-wrap fluid print"> 
+
+	<div itemscope="" itemtype="http://schema.org/Article" class="container-content"> 
+
+		<div class="clearfix">
+			<div class="float-left container-breadcrumb">
+				<div><a href="http://www.codeproject.com/script/Content/SiteMap.aspx">Articles</a> » <a href="http://www.codeproject.com/Chapters/2/Web-Development.aspx">Web Development</a> » <a href="http://www.codeproject.com/KB/aspnet/"><span itemprop="articleSection">ASP.NET</span></a> » <a href="http://www.codeproject.com/KB/aspnet/#General">General</a></div>
+			</div>
+
+			<div class="align-left float-right padded-top">
+				
+			</div>
+
+			<div class="float-right container-breadcrumb article-nav">
+				
+			</div>
+
+			<div class="align-right float-left">
+				
+			</div>
+		</div>
+
+		<table class="extended container-article-parts" cellpadding="0" cellspacing="0"><tbody><tr valign="top">
+		<td>
+
+			
+
+		</td>
+		<td>
+			
+			<div id="AT" class="container-article  fluid tight"> 
+				<div class="article">
+
+					<form name="aspnetForm" method="post" action="/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle?display=Print" id="aspnetForm" style="margin:0;padding:0">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="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" type="hidden">
+</div>
+
+
+					
+					 
+					<div class="header">
+
+					<a name="Main"></a>
+
+					
+					<a name="_articleTop" id="_articleTop"></a>
+					<div class="title">
+					
+					
+					<h1 id="ctl00_ArticleTitle" itemprop="name">ASP.NET Application and Page Life Cycle</h1> 
+					</div>
+
+					
+					<div class="entry">
+						By <span class="author"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1335831" rel="author"><span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Shivprasad <b>koirala</b></span></span></a></span>, 
+						<span class="date" itemprop="dateModified" content="2013-02-09 02:52:00">
+							8 Feb 2013</span>
+			
+									
+					</div>
+
+					
+					<table class="voting-bar"><tbody><tr><td nowrap="nowrap">
+						<div id="ctl00_CurRat" class="tooltip anchorLink" style="cursor:pointer">
+				
+							
+
+<table class="small-text" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating" cellpadding="0" cellspacing="0"> 
+<tbody><tr>
+	
+	<td class="nowrap">
+
+		
+			<meta itemprop="bestRating" content="5"> 
+			<meta itemprop="worstRating" content="1">
+		
+
+		<span id="ctl00_ArticleRating_VI">
+		<div class="nowrap rating-stars-large" style="height:19px;width:139px;position:relative;">
+	<div class="clipped align-left float-left" style="height:19px;width:137px;">
+		<img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/stars-fill-lg.png" style="border-width:0px;">
+	</div><div class="clipped" style="height:19px;width:2px;position:relative;">
+		<img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/stars-empty-lg.png" style="border-width:0px;position:absolute;top:0;right:0;">
+	</div>
+</div>
+		</span>
+
+		
+	</td>
+	
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		&nbsp;
+		<span id="ctl00_ArticleRating_VotesR">&nbsp;<span itemprop="ratingValue" class="rating">4.91</span> (<span itemprop="ratingCount" class="count">271</span> votes)</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+
+							<div id="ctl00_RB" class="speech-bubble-container-up">
+								<div class="speech-bubble-up" style="width:150px !important">
+									            
+<div>
+<table class="feature" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0" height="20px" width="100%"><tbody><tr class="chart-row"><td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/pollcol.gif" alt="1 vote, 0.4%" title="1 vote, 0.4%" border="0px" height="1px" width="20pxpx"><br><span title="1 vote">1</span></td>
+<td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/t_002.gif" alt="" title="" border="0px" height="1px" width="20pxpx"><br><span title="0 votes">2</span></td>
+<td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/pollcol.gif" alt="2 votes, 0.7%" title="2 votes, 0.7%" border="0px" height="1px" width="20pxpx"><br><span title="2 votes">3</span></td>
+<td class="chart-column"><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/pollcol.gif" alt="26 votes, 9.6%" title="26 votes, 9.6%" border="0px" height="2px" width="20pxpx"><br><span title="26 votes">4</span></td>
+<td class="chart-column"><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/pollcol.gif" alt="242 votes, 89.3%" title="242 votes, 89.3%" border="0px" height="20px" width="20pxpx"><br><span title="242 votes">5</span></td>
+</tr></tbody></table><div class="small-text align-center">4.91/5 - 271 votes</div><div class="small-text align-center subdue">3 removed</div><div class="small-text align-center subdue">μ 4.89, σ<sub>a</sub> 0.99 [<a href="http://www.codeproject.com/KB/FAQs/RatingReputationFAQ.aspx#noisefilter">?</a>]</div>
+</div>
+								</div>
+								<div class="speech-bubble-pointer-up">
+									<div class="speech-bubble-pointer-up-inner"></div>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td nowrap="nowrap">
+						
+					</td>
+					
+					</tr></tbody></table>
+
+					</div>
+					
+					
+
+					
+					<div class="prize-winner">
+<div><img id="ctl00_ArticleAwards_AR_ctl01_AI" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/award24.gif" style="border-width:0px;" align="absmiddle"> Prize winner in Competition 
+"Best ASP.NET article of April 2010" <i></i></div>
+</div>
+
+					
+					
+					
+
+						
+					
+
+					
+
+							
+							<div id="contentdiv" class="text" itemprop="articleBody">
+							
+
+
+
+<ul class="download">
+<li><a href="http://www.codeproject.com/KB/aspnet/aspdotnetpagelifecycle/sourcecode.zip">Download source code - 4.03 KB</a> </li>
+</ul>
+
+<h2>Table of Contents</h2>
+
+<table border="0" width="100%">
+<tbody>
+<tr>
+<td align="left" valign="top" width="536">
+<ul>
+<li><a href="#Introduction">Introduction</a> </li>
+</ul>
+
+<ul>
+<li><a href="#The%20Two%20step%20process">The Two Step Process</a> </li>
+</ul>
+
+<ul>
+<li><a href="#Creation%20of%20ASP.NET%20environment">Creation of ASP.NET Environment</a></li>
+</ul>
+
+<ul>
+<li><a href="#Process%20request%20using%20MHPM%20events%20fired">Process Request using MHPM Events Fired</a></li>
+</ul>
+
+<ul>
+<li><a href="#In%20What%20event%20we%20should%20do%20what">In What Event We Should Do What?</a> </li>
+</ul>
+
+<ul>
+<li><a href="#A%20sample%20code%20for%20demonstration">A Sample Code for Demonstration </a></li>
+</ul>
+
+<ul>
+<li><a href="#Zooming%20ASP.NET%20page%20events">Zooming ASP.NET Page Events</a><br>&nbsp;</li>
+
+<li><a href="#Source%20code">About the Source Code</a><br>&nbsp;</li>
+
+<li><a href="#References">References</a> </li>
+</ul>
+</td>
+
+<td align="right" valign="top">
+<p align="left"><strong>Can you explain ASP.NET application and page life cycle-(Demo, in which event we should do what) Part 3?</strong><a href="http://player.vimeo.com/video/50977953" target="_blank"><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/SSPP1122.png" complete="true" border="0" height="273" width="422"></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="Introduction">Introduction</a></h2>
+
+<p>In this article, we will try to understand what the different events 
+are which take place right from the time the user sends a request, until
+ the time the request is rendered on the browser. So we will first try 
+to understand the two broader steps of an ASP.NET request and then we 
+will move into different events emitted from ‘<code>HttpHandler</code>’, ‘<code>HttpModule</code>’
+ and ASP.NET page object. As we move in this event journey, we will try 
+to understand what kind of logic should go in each and every one of 
+these events.</p>
+
+<p>This is a small Ebook for all my .NET friends which covers topics 
+like WCF, WPF, WWF, Ajax, Core .NET, SQL, etc. You can download the same
+ from <strong><a href="http://tinyurl.com/4nvp9t">here</a></strong> or else you can catch me on my daily free training <strong><a href="http://tinyurl.com/y4mbsn6">here</a>.</strong> </p>
+
+<h2><a name="The Two step process">The Two Step Process</a></h2>
+
+<p>From 30,000 feet level, ASP.NET request processing is a 2 step process as shown below. User sends a request to the IIS:</p>
+
+<ul>
+<li>ASP.NET creates an environment which can process the request. In 
+other words, it creates the application object, request, response and 
+context objects to process the request. </li>
+
+<li>Once the environment is created, the request is processed through a 
+series of events which is processed by using modules, handlers and page 
+objects. To keep it short, let's name this step as MHPM (Module, 
+handler, page and Module event), we will come to details later. </li>
+</ul>
+
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/1.jpg" complete="true" border="0" height="246" width="628"></p>
+
+<p>In the coming sections, we will understand both these main steps in more detail.</p>
+
+<h2><a name="Creation of ASP.NET environment">Creation of ASP.NET Environment</a></h2>
+
+<p><strong>Step 1:</strong> The user sends a request to IIS. IIS first 
+checks which ISAPI extension can serve this request. Depending on file 
+extension the request is processed. For instance, if the page is an 
+‘.ASPX page’, then it will be passed to ‘<em>aspnet_isapi.dll</em>’ for processing. <br><br><strong>Step 2:</strong> If this is the first request to the website, then a class called as ‘<code>ApplicationManager</code>’
+ creates an application domain where the website can run. As we all 
+know, the application domain creates isolation between two web 
+applications hosted on the same IIS. So in case there is an issue in one
+ app domain, it does not affect the other app domain.<br><br><strong>Step 3:</strong> The newly created application domain creates hosting environment, i.e. the ‘<code>HttpRuntime</code>’ object. Once the hosting environment is created, the necessary core ASP.NET objects like ‘<code>HttpContext</code>’ , ‘<code>HttpRequest</code>’ and ‘<code>HttpResponse</code>’ objects are created.<br><br><strong>Step 4:</strong> Once all the core ASP.NET objects are created, ‘<code>HttpApplication</code>’ object is created to serve the request. In case you have a ‘<em>global.asax</em>’ file in your system, then the object of the ‘<em>global.asax</em>’ file will be created. Please note <em>global.asax</em> file inherits from ‘<code>HttpApplication</code>’ class.<br><strong>Note</strong>: The first time an ASP.NET page is attached to an application, a new instance of ‘<code>HttpApplication</code>’ is created. Said and done to maximize performance, <code>HttpApplication </code>instances might be reused for multiple requests.<br><br><strong>Step 5:</strong> The <code>HttpApplication</code> object is then assigned to the core ASP.NET objects to process the page.<br><br><strong>Step 6:</strong> <code>HttpApplication</code>
+ then starts processing the request by HTTP module events, handlers and 
+page events. It fires the MHPM event for request processing.<br><strong>Note</strong>: For more details, <a href="http://msdn.microsoft.com/en-us/library/ms178473.aspx">read this</a>.</p>
+
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/2.jpg" complete="true" border="0" height="516" hspace="0" width="640"></p>
+
+<p>The below image explains how the internal object model looks like for
+ an ASP.NET request. At the top level is the ASP.NET runtime which 
+creates an ‘<code>Appdomain</code>’ which in turn has ‘<code>HttpRuntime</code>’ with ‘request’, ‘response’ and ‘context’ objects.</p>
+
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/3.jpg" complete="true" border="0" height="369" hspace="0" width="628"></p>
+
+<h2><a name="Process request using MHPM events fired">Process Request using MHPM Events Fired</a></h2>
+
+<p>Once ‘<code>HttpApplication</code>’ is created, it starts processing requests. It goes through 3 different sections ‘<code>HttpModule</code>’ , ‘<code>Page</code>’ and ‘<code>HttpHandler</code>’.
+ As it moves through these sections, it invokes different events which 
+the developer can extend and add customize logic to the same.<br>Before we move ahead, let's understand what are ‘<code>HttpModule</code>’ and ‘<code>HttpHandlers</code>’.
+ They help us to inject custom logic before and after the ASP.NET page 
+is processed. The main differences between both of them are:</p>
+
+<ul>
+<li>If you want to inject logic based in file extensions like ‘<em>.ASPX</em>’, ‘<em>.HTML</em>’, then you use ‘<code>HttpHandler</code>’. In other words, ‘<code>HttpHandler</code>’ is an extension based processor. 
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/4.jpg" complete="true" border="0" height="394" hspace="0" width="460"></p>
+</li>
+
+<li>If you want to inject logic in the events of ASP.NET pipleline, then you use ‘<code>HttpModule</code>’. ASP.NET. In other words, ‘<code>HttpModule</code>’ is an event based processor. 
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/5.jpg" complete="true" border="0" height="300" hspace="0" width="600"></p>
+</li>
+</ul>
+
+<p>You can read more about the differences from <a href="http://computerauthor.blogspot.com/2009/09/two-interceptors-httpmodule-and.html">here</a>.<br>Below is the logical flow of how the request is processed. There are 4 important steps MHPM as explained below: <br><br><strong>Step 1(M: HttpModule):</strong> Client request processing starts. Before the ASP.NET engine goes and creates the ASP.NET <code>HttpModule</code>
+ emits events which can be used to inject customized logic. There are 6 
+important events which you can utilize before your page object is 
+created <code>BeginRequest</code>, <code>AuthenticateRequest</code>, <code>AuthorizeRequest</code>, <code>ResolveRequestCache</code>, <code>AcquireRequestState</code> and <code>PreRequestHandlerExecute</code>.<br><br><strong>Step 2 (H: ‘HttpHandler’):</strong> Once the above 6 events are fired, ASP.NET engine will invoke <code>ProcessRequest</code> event if you have implemented <code>HttpHandler</code> in your project.<br><br><strong>Step 3 (P: ASP.NET page):</strong> Once the <code>HttpHandler</code>
+ logic executes, the ASP.NET page object is created. While the ASP.NET 
+page object is created, many events are fired which can help us to write
+ our custom logic inside those page events. There are 6 important events
+ which provides us placeholder to write logic inside ASP.NET pages <code>Init</code>, <code>Load</code>, <code>validate</code>, <code>event</code>, <code>render</code> and <code>unload</code>. You can remember the word <code>SILVER</code>
+ to remember the events S – Start (does not signify anything as such 
+just forms the word) , I – (Init) , L (Load) , V (Validate), E (Event) 
+and R (Render).<br><br><strong>Step4 (M: HttpModule):</strong> Once the page object is executed and unloaded from memory, <code>HttpModule</code>
+ provides post page execution events which can be used to inject custom 
+post-processing logic. There are 4 important post-processing events <code>PostRequestHandlerExecute</code>, <code>ReleaserequestState</code>, <code>UpdateRequestCache</code> and <code>EndRequest</code>.<br>The below figure shows the same in a pictorial format.</p>
+<img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/6.jpg" complete="true" border="0" height="514" hspace="0" width="640"> 
+<h2><a name="In What event we should do what">In What Event Should We Do What?</a></h2>
+
+<p>The million dollar question is in which events should we do what? 
+Below is the table which shows in which event what kind of logic or code
+ can go.</p>
+
+<table class="ArticleTable" width="640">
+<thead>
+<tr>
+<td>Section</td>
+
+<td>Event</td>
+
+<td>Description</td>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>BeginRequest</code></td>
+
+<td>This event signals a new request; it is guaranteed to be raised on each request.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>AuthenticateRequest</code></td>
+
+<td>This event signals that ASP.NET runtime is ready to authenticate the user. Any authentication code can be injected here.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>AuthorizeRequest</code></td>
+
+<td>This event signals that ASP.NET runtime is ready to authorize the user. Any authorization code can be injected here.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>ResolveRequestCache</code></td>
+
+<td>In ASP.NET, we normally use outputcache directive to do caching. In 
+this event, ASP.NET runtime determines if the page can be served from 
+the cache rather than loading the patch from scratch. Any caching 
+specific activity can be injected here.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>AcquireRequestState</code></td>
+
+<td>This event signals that ASP.NET runtime is ready to acquire session 
+variables. Any processing you would like to do on session variables.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>PreRequestHandlerExecute</code></td>
+
+<td>This event is raised just prior to handling control to the <code>HttpHandler</code>. Before you want the control to be handed over to the handler any pre-processing you would like to do.</td>
+</tr>
+
+<tr>
+<td><code>HttpHandler</code></td>
+
+<td><code>ProcessRequest</code></td>
+
+<td><code>Httphandler </code>logic is executed. In this section, we will write logic which needs to be executed as per page extensions.</td>
+</tr>
+
+<tr>
+<td><code>Page</code></td>
+
+<td><code>Init</code></td>
+
+<td>This event happens in the ASP.NET page and can be used for: 
+<ul>
+<li>Creating controls dynamically, in case you have controls to be created on runtime. </li>
+
+<li>Any setting initialization. </li>
+
+<li>Master pages and the settings. </li>
+</ul>
+
+<p>In this section, we do not have access to viewstate, postedvalues and neither the controls are initialized.</p>
+</td>
+</tr>
+
+<tr>
+<td><code>Page</code></td>
+
+<td><code>Load</code></td>
+
+<td>In this section, the ASP.NET controls are fully loaded and you write UI manipulation logic or any other logic over here.</td>
+</tr>
+
+<tr>
+<td><code>Page</code></td>
+
+<td><code>Validate</code></td>
+
+<td>If you have valuators on your page, you would like to check the same here.</td>
+</tr>
+
+<tr>
+<td></td>
+
+<td><code>Render</code></td>
+
+<td>It’s now time to send the output to the browser. If you would like 
+to make some changes to the final HTML which is going out to the 
+browser, you can enter your HTML logic here.</td>
+</tr>
+
+<tr>
+<td><code>Page</code></td>
+
+<td><code>Unload</code></td>
+
+<td>Page object is unloaded from the memory.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>PostRequestHandlerExecute</code></td>
+
+<td>Any logic you would like to inject after the handlers are executed.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>ReleaserequestState</code></td>
+
+<td>If you would like to save update some state variables like session variables.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>UpdateRequestCache</code></td>
+
+<td>Before you end, if you want to update your cache.</td>
+</tr>
+
+<tr>
+<td><code>HttpModule</code></td>
+
+<td><code>EndRequest</code></td>
+
+<td>This is the last stage before your output is sent to the client browser.</td>
+</tr>
+</tbody>
+</table>
+
+<h2><a name="A sample code for demonstration">A Sample Code for Demonstration </a></h2>
+
+<p>With this article, we have attached a sample code which shows how the events actually fire. In this code, we have created a ‘<code>HttpModule</code>’ and ‘<code>Httphandler</code>’ in this project and we have displayed a simple response write in all events, below is how the output looks like.<br>Below is the class for ‘<code>HttpModule</code>’ which tracks all events and adds it to a global collection.</p>
+
+<pre lang="cs"><span class="code-keyword">public</span> <span class="code-keyword">class</span> clsHttpModule : IHttpModule
+{
+...... 
+<span class="code-keyword">void</span> OnUpdateRequestCache(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnUpdateRequestCache"</span>);
+}
+<span class="code-keyword">void</span> OnReleaseRequestState(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnReleaseRequestState"</span>);
+}
+<span class="code-keyword">void</span> OnPostRequestHandlerExecute(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnPostRequestHandlerExecute"</span>);
+}
+<span class="code-keyword">void</span> OnPreRequestHandlerExecute(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnPreRequestHandlerExecute"</span>);
+}
+<span class="code-keyword">void</span> OnAcquireRequestState(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnAcquireRequestState"</span>);
+}
+<span class="code-keyword">void</span> OnResolveRequestCache(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnResolveRequestCache"</span>);
+}
+<span class="code-keyword">void</span> OnAuthorization(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:OnAuthorization"</span>);
+}
+<span class="code-keyword">void</span> OnAuthentication(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:AuthenticateRequest"</span>);
+}
+<span class="code-keyword">void</span> OnBeginrequest(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:BeginRequest"</span>);
+}
+<span class="code-keyword">void</span> OnEndRequest(<span class="code-keyword">object</span> sender, EventArgs a)
+{
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">httpModule:EndRequest"</span>);
+objArrayList.Add(<span class="code-string">"</span><span class="code-string">&lt;hr&gt;"</span>);
+<span class="code-keyword">foreach</span> (<span class="code-keyword">string</span> str <span class="code-keyword">in</span> objArrayList)
+{
+httpApp.Context.Response.Write(str + <span class="code-string">"</span><span class="code-string">&lt;br&gt;"</span>) ;
+}
+} 
+}</pre>
+
+<p>Below is the code snippet for ‘<code>HttpHandler</code>’ which tracks ‘<code>ProcessRequest</code>’ event.</p>
+
+<pre lang="cs"><span class="code-keyword">public</span> <span class="code-keyword">class</span> clsHttpHandler : IHttpHandler
+{
+<span class="code-keyword">public</span> <span class="code-keyword">void</span> ProcessRequest(HttpContext context)
+{
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">HttpHandler:ProcessRequest"</span>);
+context.Response.Redirect(<span class="code-string">"</span><span class="code-string">Default.aspx"</span>);
+}
+}</pre>
+
+<p>We are also tracking all the events from the ASP.NET page.</p>
+
+<pre lang="cs"><span class="code-keyword">public</span> <span class="code-keyword">partial</span> <span class="code-keyword">class</span> _Default : System.Web.UI.Page 
+{
+<span class="code-keyword">protected</span> <span class="code-keyword">void</span> Page_init(<span class="code-keyword">object</span> sender, EventArgs e)
+{
+
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">Page:Init"</span>);
+}
+<span class="code-keyword">protected</span> <span class="code-keyword">void</span> Page_Load(<span class="code-keyword">object</span> sender, EventArgs e)
+{
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">Page:Load"</span>);
+}
+<span class="code-keyword">public</span> <span class="code-keyword">override</span> <span class="code-keyword">void</span> Validate() 
+{
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">Page:Validate"</span>);
+}
+<span class="code-keyword">protected</span> <span class="code-keyword">void</span> Button1_Click(<span class="code-keyword">object</span> sender, EventArgs e)
+{
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">Page:Event"</span>);
+}
+<span class="code-keyword">protected</span> <span class="code-keyword">override</span> <span class="code-keyword">void</span> Render(HtmlTextWriter output) 
+{
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">Page:Render"</span>);
+<span class="code-keyword">base</span>.Render(output);
+}
+<span class="code-keyword">protected</span> <span class="code-keyword">void</span> Page_Unload(<span class="code-keyword">object</span> sender, EventArgs e)
+{
+clsHttpModule.objArrayList.Add(<span class="code-string">"</span><span class="code-string">Page:UnLoad"</span>);
+}}</pre>
+
+<p>Below is how the display looks like with all events as per the sequence discussed in the previous section.</p>
+
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/7.jpg" complete="true" border="0" height="501" hspace="0" width="438"></p>
+
+<h2><a name="Zooming ASP.NET page events">Zooming ASP.NET Page Events</a></h2>
+
+<p>In the above section, we have seen the overall flow of events for an 
+ASP.NET page request. One of the most important sections is the ASP.NET 
+page, we have not discussed the same in detail. So let’s take some 
+luxury to describe the ASP.NET page events in more detail in this 
+section.</p>
+
+<p>Any ASP.NET page has 2 parts, one is the page which is displayed on 
+the browser which has HTML tags, hidden values in form of viewstate and 
+data on the HTML inputs. When the page is posted, these HTML tags are 
+created in to ASP.NET controls with viewstate and form data tied up 
+together on the server. Once you get these full server controls on the 
+behind code, you can execute and write your own login on the same and 
+render the page back to the browser.</p>
+
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/8.jpg" complete="true" border="0" height="364" hspace="0" width="628"></p>
+
+<p>Now between these HTML controls coming live on the server as ASP.NET 
+controls, the ASP.NET page emits out lot of events which can be consumed
+ to inject logic. Depending on what task / logic you want to perform, we
+ need to put this logic appropriately in those events.<br><strong>Note</strong>: Most of the developers directly use the <code>page_load </code>method
+ for everything, which is not a good thought. So it’s either populating 
+the controls, setting view state, applying themes, etc., everything 
+happens on the page load. So if we can put logic in proper events as per
+ the nature of the logic, that would really make your code clean.</p>
+
+<table class="ArticleTable" width="640">
+<thead>
+<tr>
+<td>Seq</td>
+
+<td>Events</td>
+
+<td width="69"><strong>Controls Initialized</strong></td>
+
+<td>View state <br>Available </td>
+
+<td>Form data<br>Available</td>
+
+<td>What Logic can be written here?</td>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+
+<td>Init</td>
+
+<td width="69">No</td>
+
+<td>No</td>
+
+<td>No</td>
+
+<td>
+<p><strong>Note</strong>: You can access form data etc. by using ASP.NET
+ request objects but not by Server controls.Creating controls 
+dynamically, in case you have controls to be created on runtime. Any 
+setting <code>initialization.Master </code>pages and them settings. In 
+this section, we do not have access to viewstate , posted values and 
+neither the controls are initialized.</p>
+</td>
+</tr>
+
+<tr>
+<td>2</td>
+
+<td>Load view state</td>
+
+<td width="69">Not guaranteed</td>
+
+<td>Yes</td>
+
+<td>Not guaranteed </td>
+
+<td>You can access view state and any synch logic where you want viewstate to be pushed to behind code variables can be done here.</td>
+</tr>
+
+<tr>
+<td>3</td>
+
+<td>PostBackdata</td>
+
+<td width="69">Not guaranteed</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>You can access form data. Any logic where you want the form data to be pushed to behind code variables can be done here.</td>
+</tr>
+
+<tr>
+<td>4</td>
+
+<td>Load</td>
+
+<td width="69">Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>This is the place where you will put any logic you want to operate 
+on the controls. Like flourishing a combobox from the database, sorting 
+data on a grid, etc. In this event, we get access to all controls, 
+viewstate and their posted values.</td>
+</tr>
+
+<tr>
+<td>5</td>
+
+<td>Validate</td>
+
+<td width="69">Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>If your page has validators or you want to execute validation for your page, this is the right place to the same.</td>
+</tr>
+
+<tr>
+<td>6</td>
+
+<td>Event</td>
+
+<td width="69">Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>If this is a post back by a button click or a dropdown change, then 
+the relative events will be fired. Any kind of logic which is related to
+ that event can be executed here.</td>
+</tr>
+
+<tr>
+<td height="25">7</td>
+
+<td height="25">Pre-render</td>
+
+<td height="25" width="69">Yes</td>
+
+<td height="25">Yes</td>
+
+<td height="25">Yes</td>
+
+<td height="25">If you want to make final changes to the UI objects like
+ changing tree structure or property values, before these controls are 
+saved in to view state.</td>
+</tr>
+
+<tr>
+<td>8</td>
+
+<td>Save view state</td>
+
+<td width="69">Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Once all changes to server controls are done, this event can be an opportunity to save control data in to view state.</td>
+</tr>
+
+<tr>
+<td>9</td>
+
+<td>Render</td>
+
+<td width="69">Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>If you want to add some custom HTML to the output this is the place you can.</td>
+</tr>
+
+<tr>
+<td>10</td>
+
+<td>Unload</td>
+
+<td width="69">Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Any kind of clean up you would like to do here.</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/9.jpg" complete="true" border="0" height="592" hspace="0" width="640"></p>
+
+<h2><a name="Source code">About the Source Code</a></h2>
+
+<p>This source code shows how the complete ASP.NET request cycle fires. You can download it from <a href="http://www.codeproject.com/KB/aspnet/aspdotnetpagelifecycle/sourcecode.zip">here</a>.</p>
+
+<h2><a name="References">References</a></h2>
+
+<p>I am not so smart to write this article by myself <img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/smiley_wink.gif" alt="Wink | ;-)" align="top"> , lot of things I have plugged from the below articles.</p>
+
+<ul>
+<li>Read more about IIS 7.0 life cycle <a href="http://msdn.microsoft.com/en-us/library/bb470252.aspx">http://msdn.microsoft.com/en-us/library/bb470252.aspx </a></li>
+
+<li>Intercepting filters <a href="http://msdn.microsoft.com/en-us/library/ms998536.aspx">http://msdn.microsoft.com/en-us/library/ms998536.aspx</a> </li>
+
+<li>Explains how to implement Httphandlers and modules <a href="http://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx">http://msdn.microsoft.com/enus/library/system.web.httpapplication.aspx</a> </li>
+
+<li>Httphandlers and Httpmodules :- <a href="http://www.15seconds.com/Issue/020417.htm">http://www.15seconds.com/Issue/020417.htm</a> </li>
+
+<li>Implementing security using modules and handlers <a href="http://joel.net/articles/asp.net2_security.aspx">http://joel.net/articles/asp.net2_security.aspx</a> </li>
+
+<li>Difference between Httpapplication and global.asax <a href="http://codebetter.com/blogs/karlseguin/archive/2006/06/12/146356.aspx">http://codebetter.com/blogs/karlseguin/archive/2006/06/12/146356.aspx</a> </li>
+</ul>
+
+
+							</div>
+							
+
+							
+							
+							<h2>License</h2>
+							<div id="LicenseTerms"><p>This article, along with any associated source code and files, is licensed under <a href="http://www.codeproject.com/info/cpol10.aspx" rel="license">The Code Project Open License (CPOL)</a></p></div>
+							
+
+							<div class="float-right" style="margin:20px 0 0 0;border:1px solid #ccc">
+							
+							</div>
+
+							
+							<h2 id="ctl00_AboutHeading">About the Author</h2>
+							
+
+<div class="container">
+<div style="width:210px;overflow:hidden;float:left;text-align:center">
+	<img id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhoto" class="profile-pic" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/19b83584-76e0-4c88-8df8-e6e9444b8388.JPG" style="border-width:0px;transform:rotate(1deg);">
+</div>
+<div class="container-member float-left" style="width:235px">
+	<b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" class="author" href="http://www.codeproject.com/Members/Shivprasad-koirala">Shivprasad <b>koirala</b></a></b>
+	<div class="company">
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Architect</span>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany">http://www.questpond.com</span> 
+		<br><span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation">India <img src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/IN.gif" alt="India" height="11px" width="16px"></span>
+	</div>
+</div>
+	
+<div class="padded-top float-left clearfix" style="width:600px">
+	<p>I am a Microsoft MVP for ASP/ASP.NET and currently a CEO of a small <br>
+E-learning company in India. We are very much active in making training videos , <br>
+writing books and corporate trainings. Do visit my site for&nbsp;<br>
+<a rel="nofollow" href="http://www.questpond.com/">.NET, C# , design pattern , WCF , Silverlight <br>
+, LINQ , ASP.NET , ADO.NET , Sharepoint , UML , SQL Server&nbsp; training&nbsp; <br>
+and Interview questions and answers</a></p>
+
+	
+
+	
+</div>
+</div><br>
+							
+							
+
+							<div class="clearfix"></div>
+
+							<div style="padding-top:8px">
+								
+							</div>
+
+
+						
+						<div style="margin:auto;height:90px;margin-top:10px"> 
+							
+						</div>
+						
+					
+
+					</form>
+
+				</div>
+
+				
+					
+					<h2>Comments and Discussions</h2>
+					
+					<p><img alt="Comment" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/NewComment.gif" height="16px" width="12px">
+					<b>152 messages</b> have been posted for this article 
+					Visit <b><a id="ctl00_ArticleLink" href="http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle">http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle</a></b> to post and view comments on 
+					this article, or click <b><a id="ctl00_PrintWithMessage" href="http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle?display=PrintAll">here</a></b> 
+					to get a print view with messages.</p>
+					
+
+				
+
+			</div>
+			
+		</td>
+		<td>
+			
+		</td>
+		</tr></tbody></table>
+
+		
+		<div class="theme1-background" style="height:2px"></div>
+
+		<div class="extended tiny-text">
+			<div class="row">
+				<div class="float-left">
+					<a id="ctl00_PermaLink" itemprop="url" href="http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle">Permalink</a> | 
+					<a id="ctl00_AdvertiseLink" href="http://developermedia.com/">Advertise </a> |
+					<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+					<a id="ctl00_Mobile" rel="nofollow" href="http://www.codeproject.com/Articles/73728/ASP-NET-Application-and-Page-Life-Cycle?display=Mobile">Mobile</a>
+					<br>
+								
+					
+					Web02 |
+					2.7.131210.1 |
+					Last Updated 9 Feb 2013								
+				</div>
+				<div class="float-right align-right">
+					Article Copyright 2010 by Shivprasad <b>koirala</b><br>Everything else
+					Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2013 <br>
+					<a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a>
+				</div>
+
+				
+
+			</div>
+		</div>
+		
+
+		<br clear="all">
+		
+			
+
+	</div> 
+	</div>
+</div>
+
+
+<div style="display:none;" id="lqm_AdTable">
+	
+</div>
+
+
+<script type="text/javascript" language="Javascript" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/jquery.js"></script><script type="text/javascript">//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/script/JS/jquery-1.6.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+}//]]></script>
+<script type="text/javascript" language="Javascript" src="ASP.NET%20Application%20and%20Page%20Life%20Cycle%20-%20CodeProject_files/MemberProfilePopup.js"></script>
+<script type="text/javascript" language="Javascript">//<![CDATA[
+$(document).ready(function() { anchorAnimate(); });
+$(document).ready(function() {   $('.alert-bar').fadeIn('slow');   $('.alert-bar a.close-notify').click(function() {      $('.alert-bar').fadeOut('fast');        return false;    });});
+
+//]]>
+</script>
+
+
+
+<div style="display: none; position: absolute;" id="MemberProfilePopupDiv" class="raised box"></div><div style="display: none; position: absolute;" id="MemberProfilePopupDiv" class="raised box"></div><div style="display: none; position: absolute;" id="MemberProfilePopupDiv" class="raised box"></div></body></html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+	<title>The ASP.NET Page Lifecycle – A Basic Approach - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/Main.css">
+<link type="text/css" rel="stylesheet" href="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/print.css">
+
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Description" content="A simple approach for understanding the ASP.NET page lifecycle.; Author: UsualDosage; Updated: 28 Sep 2007; Section: ASP.NET; Chapter: Web Development; Updated: 28 Sep 2007">
+<meta name="Keywords" content=".NET2.0, VS2005, ASP.NET, Windows, Dev, WebForms, Beginner,ASP.NET,Web Development,Free source code, tutorials">
+<meta name="Author" content="UsualDosage">
+<meta name="Rating" content="General">
+<meta name="Robots" content="index, follow, NOODP">
+<meta name="Revisit-After" content="1 days">
+<meta name="application-name" content="CodeProject">
+
+<link rel="dns-prefetch" href="http://ajax.googleapis.com/"> 
+<link rel="canonical" href="http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach">
+
+
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All Topics" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Android" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=22">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC/C++" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=6">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Mobile" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=18">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+
+	<!-- base href="http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach?display=Print" -->
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script type="text/javascript" language="Javascript">//<![CDATA[
+function defrm () { /* thanks twitter */ document.write = ''; window.top.location = window.self.location;  setTimeout(function() { document.body.innerHTML = ''; }, 0);  window.self.onload = function(evt) { document.body.innerHTML = ''; }; }if (window.top !== window.self) {  try {  if (window.top.location.host) { /* will throw */ } else { defrm(); /* chrome */ }  } catch (ex) { defrm(); /* everyone else */ } }if (typeof(DemoUrl)!='undefined')   document.write(unescape('%3Cme')+'ta http'+'-equiv="re'+'fresh"                  con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+
+//]]>
+</script>
+
+	
+
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1735123-1']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'www.codeproject.com']);
+	_gaq.push(['_setSessionTimeout', '1200']); 
+
+	(function () {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})(); 
+</script><script src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/ga.js" async="" type="text/javascript"></script>
+
+
+</head>	
+
+<body class="firefox firefox25">
+
+<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/t.gif"></a>
+
+
+
+
+
+<div class="page-background">
+
+	
+	
+
+	
+<div class="alert-bar  overlay " style="display: none;">
+	<a href="#" class="close-notify">×</a>
+	<div>Sign up for our free weekly <a href="http://www.codeproject.com/feature/web-newsletter">Web Developer Newsletter</a>.</div>
+</div>
+
+	<table id="ctl00_Bn" style="width:100%;height:135px" class="banner fluid" cellpadding="0" cellspacing="0">
+	<tbody><tr valign="bottom">
+		<td class="blank-background" style="height:31px">&nbsp;</td>
+		<td class="blank-background" rowspan="3" style="width:250px;height:135px"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" tabindex="1" title="CodeProject" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/logo250x135.gif" alt="Home" style="height:135px;width:250px;border-width:0px;"></a></td>
+		<td class="blank-background align-right" style="width:728px;height:31px"></td>
+		<td class="blank-background" style="height:31px">&nbsp;</td>
+	</tr>
+	<tr valign="middle">
+		<td class="theme1-background" style="height:94px">&nbsp;</td>
+		<td class="theme1-background ad"></td>
+		<td class="theme1-background" style="height:94px">&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td style="height: 10px;"></td>
+		<td style="height: 10px;" class="blank-background"></td>
+		<td style="height: 10px;"></td>
+	</tr>
+</tbody></table>
+
+
+	<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/t.gif"></a>
+
+	
+	
+	
+
+	<div id="A" class="container-content-wrap fluid print"> 
+
+	<div itemscope="" itemtype="http://schema.org/Article" class="container-content"> 
+
+		<div class="clearfix">
+			<div class="float-left container-breadcrumb">
+				<div><a href="http://www.codeproject.com/script/Content/SiteMap.aspx">Articles</a> » <a href="http://www.codeproject.com/Chapters/2/Web-Development.aspx">Web Development</a> » <a href="http://www.codeproject.com/KB/aspnet/"><span itemprop="articleSection">ASP.NET</span></a> » <a href="http://www.codeproject.com/KB/aspnet/#General">General</a></div>
+			</div>
+
+			<div class="align-left float-right padded-top">
+				
+			</div>
+
+			<div class="float-right container-breadcrumb article-nav">
+				
+			</div>
+
+			<div class="align-right float-left">
+				
+			</div>
+		</div>
+
+		<table class="extended container-article-parts" cellpadding="0" cellspacing="0"><tbody><tr valign="top">
+		<td>
+
+			
+
+		</td>
+		<td>
+			
+			<div id="AT" class="container-article  fluid tight"> 
+				<div class="article">
+
+					<form name="aspnetForm" method="post" action="/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach?display=Print" id="aspnetForm" style="margin:0;padding:0">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="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" type="hidden">
+</div>
+
+
+					
+					 
+					<div class="header">
+
+					<a name="Main"></a>
+
+					
+					<a name="_articleTop" id="_articleTop"></a>
+					<div class="title">
+					
+					
+					<h1 id="ctl00_ArticleTitle" itemprop="name">The ASP.NET Page Lifecycle – A Basic Approach</h1> 
+					</div>
+
+					
+					<div class="entry">
+						By <span class="author"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=2032887" rel="author"><span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">UsualDosage</span></span></a></span>, 
+						<span class="date" itemprop="dateModified" content="2007-09-28 10:30:00">
+							28 Sep 2007</span>
+			
+									
+					</div>
+
+					
+					<table class="voting-bar"><tbody><tr><td nowrap="nowrap">
+						<div id="ctl00_CurRat" class="tooltip anchorLink" style="cursor:pointer">
+				
+							
+
+<table class="small-text" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating" cellpadding="0" cellspacing="0"> 
+<tbody><tr>
+	
+	<td class="nowrap">
+
+		
+			<meta itemprop="bestRating" content="5"> 
+			<meta itemprop="worstRating" content="1">
+		
+
+		<span id="ctl00_ArticleRating_VI">
+		<div class="nowrap rating-stars-large" style="height:19px;width:139px;position:relative;">
+	<div class="clipped align-left float-left" style="height:19px;width:136px;">
+		<img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/stars-fill-lg.png" style="border-width:0px;">
+	</div><div class="clipped" style="height:19px;width:3px;position:relative;">
+		<img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/stars-empty-lg.png" style="border-width:0px;position:absolute;top:0;right:0;">
+	</div>
+</div>
+		</span>
+
+		
+	</td>
+	
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		&nbsp;
+		<span id="ctl00_ArticleRating_VotesR">&nbsp;<span itemprop="ratingValue" class="rating">4.88</span> (<span itemprop="ratingCount" class="count">93</span> votes)</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+
+							<div id="ctl00_RB" class="speech-bubble-container-up">
+								<div class="speech-bubble-up" style="width:150px !important">
+									            
+<div>
+<table class="feature" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0" height="20px" width="100%"><tbody><tr class="chart-row"><td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/pollcol.gif" alt="3 votes, 3.2%" title="3 votes, 3.2%" border="0px" height="1px" width="20pxpx"><br><span title="3 votes">1</span></td>
+<td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/pollcol.gif" alt="1 vote, 1.1%" title="1 vote, 1.1%" border="0px" height="1px" width="20pxpx"><br><span title="1 vote">2</span></td>
+<td class="chart-column rating-ignore-vote" title="Outside deviation limits - not included in score."><img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/pollcol.gif" alt="3 votes, 3.2%" title="3 votes, 3.2%" border="0px" height="1px" width="20pxpx"><br><span title="3 votes">3</span></td>
+<td class="chart-column"><img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/pollcol.gif" alt="13 votes, 14.0%" title="13 votes, 14.0%" border="0px" height="3px" width="20pxpx"><br><span title="13 votes">4</span></td>
+<td class="chart-column"><img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/pollcol.gif" alt="73 votes, 78.5%" title="73 votes, 78.5%" border="0px" height="20px" width="20pxpx"><br><span title="73 votes">5</span></td>
+</tr></tbody></table><div class="small-text align-center">4.88/5 - 93 votes</div><div class="small-text align-center subdue">7 removed</div><div class="small-text align-center subdue">μ 4.63, σ<sub>a</sub> 1.53 [<a href="http://www.codeproject.com/KB/FAQs/RatingReputationFAQ.aspx#noisefilter">?</a>]</div>
+</div>
+								</div>
+								<div class="speech-bubble-pointer-up">
+									<div class="speech-bubble-pointer-up-inner"></div>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td nowrap="nowrap">
+						
+					</td>
+					
+					</tr></tbody></table>
+
+					</div>
+					
+					
+
+					
+					<div class="prize-winner">
+<div><img id="ctl00_ArticleAwards_AR_ctl01_AI" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/award24.gif" style="border-width:0px;" align="absmiddle"> Prize winner in Competition 
+"Best ASP.NET article of Aug 2007" <i></i></div>
+</div>
+
+					
+					
+					
+
+						
+					
+
+					
+
+							
+							<div id="contentdiv" class="text" itemprop="articleBody">
+							
+
+
+
+<h2>Introduction</h2>
+
+<p>For ASP.NET developers, understanding the ASP.NET page lifecycle is 
+important for many reasons, but primarily for knowing where to place 
+particular methods, and when various page properties are set. However, 
+it can often be difficult to remember and make sense out of all of the 
+methods available in the page lifecycle. While there are scores of 
+articles on the internet related to the internal mechanics of the page 
+lifecycle, this article intends to begin by covering the basics and 
+providing a simple and easy understanding of usage. </p>
+
+<p>It can be difficult to remember exactly what happens and when during 
+the ASP.NET page lifecycle. That in mind, often the easiest way to make 
+sense out of a series of steps is to create an acronym. Microsoft shows 
+us the basic steps of the ASP.NET page lifecycle below. </p>
+
+<ol>
+<li>Page Request </li>
+
+<li>Start </li>
+
+<li>Page Initialization </li>
+
+<li>Load </li>
+
+<li>Validation </li>
+
+<li>Postback event handling </li>
+
+<li>Rendering </li>
+
+<li>Unload </li>
+</ol>
+
+<p>Putting together an acronym for these is easy enough. Since the Page 
+Request technically isn't a part of the life cycle (it only indicates 
+whether we actually will start the cycle or load a cached page) we won't
+ include it in the acronym. </p>
+
+<ul>
+<li>S – Start </li>
+
+<li>I – Initialize </li>
+
+<li>L – Load </li>
+
+<li>V – Validate </li>
+
+<li>E – Event Handling </li>
+
+<li>R – Render </li>
+</ul>
+
+<p>That gives us "SILVER", which is very easy to remember. However, it 
+is important remember that the last part of the cycle is unload. You can
+ remember it as "SILVER-U" or "SILVER-YOU" if that helps (but it just 
+didn't quite fit into our acronym!). Now that it's easy to remember the 
+order of steps for the page lifecycle, we'll summarize exactly what 
+happens and what events are pertinent to each stage. </p>
+
+<h3>1. Start</h3>
+
+<p>This is where page properties such as <code>Request</code>, <code>Response</code>, <code>IsPostBack </code>and <code>UICulture </code>are
+ set. As a developer, you most likely won't really need to do anything 
+in this stage of the cycle. If you need to access or override behavior 
+for this step, use the <code>PreInit</code> method to create or 
+re-create dynamic controls, set a master page or theme or read or set 
+profile property values. It is important to note that if the request is a
+ postback, the values of the controls have not yet been restored from 
+view state. If you set a control property at this stage, its value might
+ be overwritten in the next event. </p>
+
+<h3>2. Initialize</h3>
+
+<p>This stage can be very important to developers. Here, themes are 
+applied, and unique ids are generated and set for controls. Developers 
+have access to the <code>Init</code>, <code>InitComplete</code> and <code>PreLoad</code> methods in this stage. Microsoft's recommended usage for these methods is as follows: </p>
+
+<ul>
+<li><code>Init </code>– This event is raised after all controls have 
+been initialized and any skin settings have been applied. Use this event
+ to read or initialize control properties. </li>
+
+<li><code>InitComplete </code>– This event is raised by the <code>Page </code>object. Use this event for processing tasks that require all initialization be complete. </li>
+
+<li><code>PreLoad </code>- Use this event if you need to perform 
+processing on your page or control before the Load event. After the Page
+ raises this event, it loads view state for itself and all controls, and
+ then processes any postback data included with the Request instance. </li>
+</ul>
+
+<h3>3. Load</h3>
+
+<p>This stage is perhaps the most utilized by developers. In this stage 
+controls are loaded with information retrieved from view and control 
+states. The <code>OnLoad</code> is the event method that fires during 
+this stage. This is where you will want to set properties for all of the
+ server controls on your page, request query strings, and establish 
+database connections. </p>
+
+<h3>4. Validation</h3>
+
+<p>If you have controls that require validation, they are validated here
+ and you can now check the IsValid property of the control. The event 
+associated with this is <code>Validate</code>, which contains one 
+overloaded method that accepts a validation group string. The overloaded
+ method instructs the controls in the specified group to validate. </p>
+
+<h3>5. Event Handling</h3>
+
+<p>The event handling for server controls occurs during this stage. This means that events such as <code>Click</code>, <code>SelectedIndexChanged</code>,
+ etc are applied to your server controls, and, in the case of a 
+postback, these event handlers are fired by the control. The accessible 
+events of note in this stage are as follows: </p>
+
+<ul>
+<li><code>LoadComplete </code>– At this step, all of the controls for the page have been loaded. </li>
+
+<li><code>PreRender </code>– A few things of import happen here. First, the page object will call <code>EnsureChildControls </code>for each control, and finally for the page. Additionally, any data bound control that has a <code>DataSourceID </code>set will call its <code>DataBind</code> method. It is important to note that the <code>PreRender </code>event
+ occurs for each control on the page. At the conclusion of this event, 
+ViewState will be saved for the page and all of the controls. </li>
+
+<li><code>SaveStateComplete </code>– ViewState has been saved. If you 
+have actions that do not require changes to controls but require 
+ViewState to have been saved, you can handle the SaveStateComplete 
+event. </li>
+</ul>
+
+<h3>6. Render</h3>
+
+<p>Render is not really an event. Rather, the page object calls this 
+method on each control, which in turn writes out the HTML markup for the
+ control to the browser. This stage is keenly important to developers 
+who create custom controls, because the standard approach is to override
+ the <code>Render </code>method for the control in order to output the 
+custom markup. If your control inherits from a standard ASP.NET server 
+control, you probably won't need to override the <code>Render </code>method
+ unless you want to exhibit a different behavior than the control's 
+default. This is outside the scope of this document, but for more 
+reading, you can reference Microsoft's Developing Custom ASP.NET Server 
+Controls. (<a href="http://msdn2.microsoft.com/en-us/library/zt27tfhy.aspx">http://msdn2.microsoft.com/en-us/library/zt27tfhy.aspx</a>) </p>
+
+<h3>7. Unload</h3>
+
+<p>This final event occurs first for each control, then, finally, for 
+the page. At this point, all controls have been rendered to the output 
+stream and cannot be changed. During this event any attempt to access 
+the response stream will result in an exception being thrown. This event
+ is primarily for cleanup routines such as closing open database 
+connections and open file streams, or, event logging and other tasks. </p>
+
+<h2>Methods</h2>
+
+<p>The following methods (which can all be overridden) occur in order 
+during the lifecycle of an ASP.NET page. Please realize that some of 
+these methods are called recursively, and multiple times depending on 
+the content of the page. This list is the generalized order in which 
+methods fire when a page loads. You can test this by creating a default 
+ASP.NET application, overloading each of the below methods, and setting a
+ breakpoint on each. </p>
+
+<ol>
+<li><code>Construct</code> </li>
+
+<li><code>ProcessRequest</code> </li>
+
+<li><code>FrameworkInitialize</code> </li>
+
+<li><code>InitializeCulture</code> </li>
+
+<li>If child controls are present: 
+<ol>
+<li style="MARGIN-RIGHT: 0px"><code>AddParsedSubObject</code> </li>
+
+<li style="MARGIN-RIGHT: 0px"><code>CreateControlCollection</code> </li>
+
+<li dir="ltr" style="MARGIN-RIGHT: 0px"><code>AddedControl</code> </li>
+
+<li dir="ltr" style="MARGIN-RIGHT: 0px"><code>ResolveAdapter</code> </li>
+</ol>
+</li>
+
+<li><code>DeterminePostBackMode</code> </li>
+
+<li><code>OnPreInit</code> </li>
+
+<li><code>OnInit</code> </li>
+
+<li><code>TrackViewState</code> </li>
+
+<li><code>OnInitComplete</code> </li>
+
+<li><code>OnPreLoad</code> </li>
+
+<li><code>OnLoad</code> </li>
+
+<li><code>OnLoadComplete</code> </li>
+
+<li><code>EnsureChildControls</code> 
+<ol>
+<li><code>CreateChildControls</code> </li>
+</ol>
+</li>
+
+<li><code>OnPreRender</code> </li>
+
+<li><code>OnPreRenderComplete</code> </li>
+
+<li><code>SaveViewState</code> </li>
+
+<li><code>OnSaveStateComplete</code> </li>
+
+<li><code>CreateHtmlTextWriter</code> </li>
+
+<li><code>RenderControl</code> </li>
+
+<li><code>Render</code> 
+<ol>
+<li><code>RenderChildren</code> </li>
+
+<li><code>VerifyRenderingInServerForm</code> </li>
+</ol>
+</li>
+
+<li><code>OnUnload</code> </li>
+
+<li><code>Dispose</code> </li>
+</ol>
+
+<h2>Conclusion</h2>
+
+<p>When developing ASP.NET applications, it's important to know what 
+happens when. Understanding how events unfold inside of the page will 
+save you several hours of headache and debugging. While the order of the
+ methods may be hard to remember, I hope that applying the anagram will 
+be of considerable use when determining what needs to happen where 
+inside of your application. </p>
+
+<p>I put this article together as much to help other people, as to help 
+myself. Even experienced developers can sometimes forget the order in 
+which things occur. This is not intended to be an all-encompassing 
+article. Rather, it is my hope that beginning and intermediate 
+developers can carry this "hip pocket" material around to help mitigate 
+at least some of the more common mistakes. </p>
+
+<p>Happy ASP.NET'ing!</p>
+
+
+							</div>
+							
+
+							
+							
+							<h2>License</h2>
+							<div id="LicenseTerms"><p>This article, along with any associated source code and files, is licensed under <a href="http://www.codeproject.com/info/cpol10.aspx" rel="license">The Code Project Open License (CPOL)</a></p></div>
+							
+
+							<div class="float-right" style="margin:20px 0 0 0;border:1px solid #ccc">
+							
+							</div>
+
+							
+							<h2 id="ctl00_AboutHeading">About the Author</h2>
+							
+
+<div class="container">
+<div style="width:210px;overflow:hidden;float:left;text-align:center">
+	<img id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhoto" class="profile-pic" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/070a6d97-02fa-47f9-8f59-fa58ee6438ad.jpg" style="border-width:0px;transform:rotate(-2deg);">
+</div>
+<div class="container-member float-left" style="width:235px">
+	<b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" class="author" href="http://www.codeproject.com/Members/UsualDosage">UsualDosage</a></b>
+	<div class="company">
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Architect</span>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany"></span> 
+		<br><span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation">United States <img src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/US.gif" alt="United States" height="11px" width="16px"></span>
+	</div>
+</div>
+	
+<div class="padded-top float-left clearfix" style="width:600px">
+	<div style="background-color: #fafafa; border:solid 1px Gray; padding: 5px; font-family: Tahoma; color: #444; border-radius: 3px;">I
+ have been an ASP.NET/C# Programmer/Software Architect for about 10 
+years, specializing in web architecture, user interface, and user 
+experience. I formerly wrote business applications for mortgage banking 
+front-ends in C++ before switching to the .NET Framework many years ago,
+ and I've never looked back. I'm an evangelist of HTML5 and web 
+standards, and spend the majority of my time working on front end 
+design, performance and scale.<br><br>My primary website is located at <a rel="nofollow" href="http://www.usualdosage.com/">http://www.usualdosage.com</a><br>
+</div>
+
+	
+
+	
+</div>
+</div><br>
+							
+							
+
+							<div class="clearfix"></div>
+
+							<div style="padding-top:8px">
+								
+							</div>
+
+
+						
+						<div style="margin:auto;height:90px;margin-top:10px"> 
+							
+						</div>
+						
+					
+
+					</form>
+
+				</div>
+
+				
+					
+					<h2>Comments and Discussions</h2>
+					
+					<p><img alt="Comment" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/NewComment.gif" height="16px" width="12px">
+					<b>23 messages</b> have been posted for this article 
+					Visit <b><a id="ctl00_ArticleLink" href="http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach">http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach</a></b> to post and view comments on 
+					this article, or click <b><a id="ctl00_PrintWithMessage" href="http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach?display=PrintAll">here</a></b> 
+					to get a print view with messages.</p>
+					
+
+				
+
+			</div>
+			
+		</td>
+		<td>
+			
+		</td>
+		</tr></tbody></table>
+
+		
+		<div class="theme1-background" style="height:2px"></div>
+
+		<div class="extended tiny-text">
+			<div class="row">
+				<div class="float-left">
+					<a id="ctl00_PermaLink" itemprop="url" href="http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach">Permalink</a> | 
+					<a id="ctl00_AdvertiseLink" href="http://developermedia.com/">Advertise </a> |
+					<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+					<a id="ctl00_Mobile" rel="nofollow" href="http://www.codeproject.com/Articles/20659/The-ASP-NET-Page-Lifecycle-A-Basic-Approach?display=Mobile">Mobile</a>
+					<br>
+								
+					
+					Web02 |
+					2.7.131210.1 |
+					Last Updated 28 Sep 2007								
+				</div>
+				<div class="float-right align-right">
+					Article Copyright 2007 by UsualDosage<br>Everything else
+					Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2013 <br>
+					<a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a>
+				</div>
+
+				
+
+			</div>
+		</div>
+		
+
+		<br clear="all">
+		
+			
+
+	</div> 
+	</div>
+</div>
+
+
+<div style="display:none;" id="lqm_AdTable">
+	
+</div>
+
+
+<script type="text/javascript" language="Javascript" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/jquery.js"></script><script type="text/javascript">//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/script/JS/jquery-1.6.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+}//]]></script>
+<script type="text/javascript" language="Javascript" src="The%20ASP.NET%20Page%20Lifecycle%20%E2%80%93%20A%20Basic%20Approach%20-%20CodeProject_files/MemberProfilePopup.js"></script>
+<script type="text/javascript" language="Javascript">//<![CDATA[
+$(document).ready(function() { anchorAnimate(); });
+$(document).ready(function() {   $('.alert-bar').fadeIn('slow');   $('.alert-bar a.close-notify').click(function() {      $('.alert-bar').fadeOut('fast');        return false;    });});
+
+//]]>
+</script>
+
+
+
+<div style="display: none; position: absolute;" id="MemberProfilePopupDiv" class="raised box"></div><div style="display: none; position: absolute;" id="MemberProfilePopupDiv" class="raised box"></div><div style="display: none; position: absolute;" id="MemberProfilePopupDiv" class="raised box"></div></body></html>

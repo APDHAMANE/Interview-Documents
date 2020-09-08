@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus js-focus-visible theme-light" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="true" data-target="docs" x-ms-format-detection="none" data-js-focus-visible="" lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="ASP.NET Page Life Cycle Overview">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://docs.microsoft.com/en-us/previous-versions/ms178472(v=vs.140)">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@docsmsft">
+
+
+	<meta name="breadcrumb_path" content="/previous-versions/visualstudio/breadcrumb/toc.json">
+<meta name="depot_name" content="MSDN.previous-versions-root">
+<meta name="document_id" content="b984af6a-e67f-81fb-2a1d-8d991383d9d9">
+<meta name="document_version_independent_id" content="d327692e-60b6-1696-55e6-63e40be5f240">
+<meta name="gitcommit" content="https://docs-archive.visualstudio.com/DefaultCollection/docs-archive-project/_git/previous-versions-root/commit/4ef6e62ef1fa8e44f79de6ef9003a749641f72cb?path=/vs.140/ms178472(v=vs.140).md&amp;_a=contents">
+<meta name="is_archived" content="true">
+<meta name="locale" content="en-us">
+<meta name="ms.author" content="Archiveddocs">
+<meta name="ms.date" content="12/04/2014">
+<meta name="ms.prod" content="vs.140">
+<meta name="ms.topic" content="archived">
+<meta name="ms:assetid" content="7949d756-1a79-464e-891f-904b1cfc7991">
+<meta name="ms:contentKeyID" content="63055644">
+<meta name="ms:mtpsurl" content="https://msdn.microsoft.com/en-us/library/ms178472(v=VS.140)">
+<meta name="mtps_version" content="v=VS.140">
+<meta name="original_content_git_url" content="https://docs-archive.visualstudio.com/DefaultCollection/docs-archive-project/_git/previous-versions-root?path=/vs.140/ms178472(v=vs.140).md&amp;version=GBlive&amp;_a=contents">
+<meta name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<meta name="search.ms_docsetname" content="previous-versions-root">
+<meta name="search.ms_product" content="MSDN">
+<meta name="search.ms_sitename" content="Docs">
+<meta name="site_name" content="Docs">
+<meta name="TOCTitle" content="ASP.NET Page Life Cycle Overview">
+<meta name="uhfHeaderId" content="MSDocsHeader-Archive">
+<meta name="updated_at" content="2019-02-28 08:05 AM">
+<meta name="page_type" content="conceptual">
+<meta name="word_count" content="2830">
+
+
+<link href="https://docs.microsoft.com/en-us/previous-versions/ms178472(v=vs.140)" rel="canonical">
+	<title>ASP.NET Page Life Cycle Overview | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/c23e233f.css">
+
+	<link rel="stylesheet" href="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/5a8a71c1.css">
+
+
+	<script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/a_002"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/a"></script><script async="" defer="defer" crossorigin="anonymous" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/lux.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/analytics.js"></script><script>
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasBinaryRating: false,
+			hasGithubIssues: false,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'None',
+			feedbackGitHubRepo: '',
+			feedbackProductUrl: '',
+			contentGitUrl: 'https://docs-archive.visualstudio.com/DefaultCollection/docs-archive-project/_git/previous-versions-root?path=/vs.140/ms178472(v=vs.140).md&version=GBlive&_a=contents',
+			extendBreadcrumb: true,
+			isEditDisplayable: false,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasBookmark: true,
+			hasShare: true
+		},
+		functions:{}
+	};
+	</script>
+	<script nomodule="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/bluebird.js" integrity="sha384-aD4BDeDGeLXLpPK4yKeqtZQa9dv4a/7mQ+4L5vwshIYH1Mc2BrXvHd32iHzYCQy5" crossorigin="anonymous"></script>
+	<script nomodule="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/fetch.js" integrity="sha384-EQIXrC5K2+7X8nGgLkB995I0/6jfAvvyG1ieZ+WYGxgJHFMD/alsG9fSDWvzb5Y1" crossorigin="anonymous"></script>
+	<script nomodule="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/template.js" integrity="sha384-1zKzI6ldTVHMU7n0W2HpE/lhHI+UG4D9IIaxbj3kT2UhCWicdTuJkTtnKuu0CQzN" crossorigin="anonymous"></script>
+	<script nomodule="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/url.js" integrity="sha384-vn7xBMtpSTfzaTRWxj0kVq0UcsbBrTOgZ/M1ISHqe1V358elYva+lfiEC+T8jLPc" crossorigin="anonymous"></script>
+	<script nomodule="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/7501e2bd.js"></script>
+		<script src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/c9ccf9bf.js"></script><style></style><script src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/jsll-4.js" async="" defer="defer"></script>
+<script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_004.js"></script><style type="text/css" media="print">.usabilla_live_button_container { display: none; }</style><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_019.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_005.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_064.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_048.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_027.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_014.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_043.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_057.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_011.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_054.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_042.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_062.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_016.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_030.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_009.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_040.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_039.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_018.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_049.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_003.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_041.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_047.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_024.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_023.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_060.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_028.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_044.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_067.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_010.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_061.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_013.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_017.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_053.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_029.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_058.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_007.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_036.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_034.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_051.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_069.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_055.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_033.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_026.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_066.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_035.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_046.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_038.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_006.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_021.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_056.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_022.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_068.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_015.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_008.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_012.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_002.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_037.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_031.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_063.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_045.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_052.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_020.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_065.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_025.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_032.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_050.js"></script><script async="" src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/t_059.js"></script></head>
+
+<body dir="ltr" lang="en-us"><div style="display: none;" id="lightningjs-usabilla_live"><div><iframe id="lightningjs-frame-usabilla_live" frameborder="0"></iframe></div></div>
+<div class="header-holder has-default-focus">
+	<a href="#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused is-fixed has-inner-focus focus-visible has-top-zero has-left-zero has-right-zero has-padding-medium has-text-centered has-body-background-medium" tabindex="1">Skip to main content</a>
+		<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization"><!----><!----><div class="nav-bar"><!---->  <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" itemprop="url" href="https://www.microsoft.com/" aria-label="Microsoft">
+		<div class="nav-bar-logo has-background-image theme-display is-light" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+		<div class="nav-bar-logo has-background-image theme-display is-dark is-high-contrast" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+	</a> 
+			
+		<div class="nav-bar-item is-hidden-tablet">
+			<button class="nav-bar-button is-size-5 is-text has-body-background has-padding-none" title="Global navigation" aria-expanded="false">
+				<span class="has-text-weight-semibold has-padding-left-small has-padding-bottom-extra-small"><!---->Documentation<!----></span>
+				<div class="nav-bar-burger has-padding-none has-height-zero">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="is-visually-hidden"><!---->Global navigation<!----></span>
+				</div>
+			</button>
+		</div>
+	
+			
+		<nav class="nav-bar-nav" role="navigation" aria-label="Global">
+			<ul class="nav-bar-nav-list">
+				
+		<li class="nav-bar-item is-category has-spacing">
+			<a class="nav-bar-button title has-hover-underline is-4" itemprop="url" href="https://docs.microsoft.com/en-us/">
+				<span><!---->Docs<!----></span>
+			</a>
+		</li>
+	
+				<!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline is-active" href="https://docs.microsoft.com/en-us/">
+					<span><!---->Documentation<!----></span>
+				</a>
+		  </li><!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/en-us/learn/">
+					<span><!---->Learn<!----></span>
+				</a>
+		  </li><!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/en-us/answers/products/">
+					<span><!---->Q&amp;A<!----></span>
+				</a>
+		  </li><!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/en-us/samples/browse/">
+					<span><!---->Code Samples<!----></span>
+				</a>
+		  </li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button has-hover-underline" aria-controls="ax-49">
+			<span><!---->More<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-49" aria-label="More">
+			<!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/"><!---->Documentation<!----></a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/learn/"><!---->Learn<!----></a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/answers/products/"><!---->Q&amp;A<!----></a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/samples/browse/"><!---->Code Samples<!----></a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!---->
+			</ul>
+		</nav>
+	
+			<span class="nav-bar-spacer is-hidden-mobile"></span>
+			
+		<div class="nav-bar-item nav-bar-search-form-item has-padding-left-extra-small has-padding-none-tablet" id="ax-50" hidden="">
+			
+		<form class="is-flex" method="GET" name="searchForm" role="search" id="searchForm" aria-label="Search" aria-expanded="false" action="/en-us/search/">
+			<div class="autocomplete" data-bi-name="autocomplete"><!----> <div class="control ">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-search-input" class="autocomplete-input input   is-small" type="search" name="search" aria-expanded="false" aria-owns="ax-51-listbox" aria-activedescendant="" aria-label="Search" placeholder="Search previous versions">
+
+				<span aria-hidden="true" class="icon is-small is-left" hidden="">
+					<span class="has-text-primary docon docon-undefined"></span>
+				</span>
+
+				<span class="autocomplete-loader loader has-text-primary" aria-hidden="true" hidden=""></span>
+			</div>
+
+			<ul class="autocomplete-suggestions is-vertically-scrollable" role="listbox" id="ax-51-listbox" aria-label="site-search-input-suggestions" hidden="">
+				
+			</ul><!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" value="All" hidden="">
+			
+			<input name="dataSource" value="previousVersions" hidden="">
+			
+		</form>
+	
+		</div>
+		
+					<div class="nav-bar-item nav-bar-search-form-item has-flex-grow-none
+						has-flex-shrink-none has-margin-right-extra-small has-padding-left-extra-small has-padding-none-tablet">
+						<!-- hidden when the width drops to tablet -->
+						
+		<form class="is-flex" method="GET" name="searchForm" role="search" id="searchFormDesktop" aria-label="Search" aria-expanded="false" action="/en-us/search/">
+			<div class="autocomplete" data-bi-name="autocomplete"><!----> <div class="control has-icons-left">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="ax-52" class="autocomplete-input input control has-icons-left  is-small" type="search" name="search" aria-expanded="false" aria-owns="ax-53-listbox" aria-activedescendant="" aria-label="Search" placeholder="Search previous versions">
+
+				<span aria-hidden="true" class="icon is-small is-left">
+					<span class="has-text-primary docon docon-search"></span>
+				</span>
+
+				<span class="autocomplete-loader loader has-text-primary" aria-hidden="true" hidden=""></span>
+			</div>
+
+			<ul class="autocomplete-suggestions is-vertically-scrollable" role="listbox" id="ax-53-listbox" aria-label="ax-52-suggestions" hidden="">
+				
+			</ul><!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" value="All" hidden="">
+			
+			<input name="dataSource" value="previousVersions" hidden="">
+			
+		</form>
+	
+					</div>
+			  
+		<div class="nav-bar-item has-flex-grow-mobile has-flex-shrink-mobile" hidden="">
+			<button id="form-expander" class="nav-bar-button has-hover-underline is-full-width has-padding-medium has-flex-justify-content-end-mobile" title="Search" aria-expanded="false" aria-controls="ax-50">
+				
+		<span class="is-visually-hidden-mobile"><!---->Search<!----></span>
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-search"></span>
+		</span>
+	
+			</button>
+		</div>
+	
+			
+		<div class="nav-bar-item is-size-7 is-hidden-mobile has-padding-left-extra-small">
+			
+		<a class="docs-sign-in auth-status-determined not-authenticated button is-text has-inner-focus has-text-primary is-small" href="#">
+			Sign in
+		</a>
+	 
+		<div class="dropdown has-caret auth-status-determined authenticated">
+			<button class="dropdown-trigger button is-text has-padding-none has-background-transparent" aria-controls="user-menu" aria-expanded="false" aria-label="Your Account">
+				<figure class="image is-36x36">
+					<img class="has-body-background-medium is-rounded" alt="" data-profile-property="avatarUrl">
+				</figure>
+			</button>
+			<div class="dropdown-menu box" id="user-menu" role="menu">
+				<div class="media is-user-dir">
+					<div class="media-left">
+						<figure class="image is-48x48" aria-hidden="true">
+							<img class="has-body-background-medium is-rounded" aria-labelledby="displayName" data-profile-property="avatarUrl">
+						</figure>
+					</div>
+					<div class="media-content">
+						<p class="title is-size-4">
+							<span id="displayName" class="is-inline-truncated has-max-width-200" data-profile-property="displayName"></span>
+						</p>
+						<p class="subtitle is-size-7 has-margin-bottom-none">
+							<span class="is-inline-truncated has-max-width-200" data-profile-property="upn"></span>
+						</p>
+					</div>
+				</div>
+				<ul>
+					<li><a href="https://docs.microsoft.com/profile" data-profile-property="profileUrl"><!---->Profile<!----></a></li>
+					<li><a href="https://docs.microsoft.com/profile" data-profile-property="bookmarksUrl"><!---->Bookmarks<!----></a></li>
+					<li><a href="https://docs.microsoft.com/profile" data-profile-property="collectionsUrl"><!---->Collections<!----></a></li>
+				</ul>
+				<div class="has-border-top">
+					<a class="docs-sign-out" href="#"><!---->Sign out<!----></a>
+				</div>
+			</div>
+		</div>
+	
+		</div>
+	
+		 <!----></div><div class="nav-bar is-content is-hidden-mobile has-border-top"><!----> 
+		<a class="nav-bar-button title has-hover-underline is-4 has-margin-none" itemprop="url" href="https://docs.microsoft.com/">
+			<span><!---->Docs<!----></span>
+		</a>
+	 
+		
+		<nav class="nav-bar-nav" role="navigation" aria-label="Site">
+			<ul class="nav-bar-nav-list">
+				
+				<!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/previous-versions">
+					<span><!---->Previous Versions Documentation<!----></span>
+				</a>
+		  </li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button has-hover-underline" aria-controls="ax-48">
+			<span><!---->More<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-48" aria-label="More">
+			<!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/previous-versions"><!---->Previous Versions Documentation<!----></a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!---->
+			</ul>
+		</nav>
+	
+		<span class="nav-bar-spacer is-hidden-mobile"></span>
+		
+	 <!----></div></header>		</div>
+		<div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none" data-bi-name="content-header">
+			<nav class="has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow" data-bi-name="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb">
+				<ul id="page-breadcrumbs" class="breadcrumbs">
+				</ul>
+			</nav>
+		<div class="content-header-controls">
+			<button type="button" class="contents-button button" data-bi-name="contents-expand" aria-haspopup="true">
+				<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+				<span>Contents</span>
+			</button>
+		</div>
+		<div class="content-header-controls exit-focus">
+			<button type="button" class="ap-collapse-behavior ap-expanded button" data-bi-name="ap-collapse" aria-controls="action-panel">
+				<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+				<span>Exit focus mode</span>
+			</button>
+		</div>
+		<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+			<ul class="is-hidden-mobile action-list has-flex-justify-content-start has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+				<li>
+					<button type="button" class="bookmark button is-text has-inner-focus is-small is-icon-only-touch" data-list-type="bookmarks" data-bi-name="bookmark" title="Add bookmark for ASP.NET Page Life Cycle Overview | Microsoft Docs" aria-pressed="false">
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-single-bookmark"></span>
+						</span>
+						<span class="bookmark-status is-visually-hidden-touch is-hidden-portrait">Bookmark</span>
+					</button>
+				</li>
+				<li>
+<div class="sharing dropdown has-caret">
+	<button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-sharing"></span>
+		</span>
+		<span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+	</button>
+	<div class="dropdown-menu has-padding-small" id="sharing-menu">
+		<ul data-bi-name="share-links">
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" data-bi-name="twitter" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fms178472(v%3Dvs.140)%3Fredirectedfrom%3DMSDN%26WT.mc_id%3Dtwitter&amp;text=ASP.NET%20Page%20Life%20Cycle%20Overview%20%7C%20Microsoft%20Docs&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fms178472(v%3Dvs.140)%3Fredirectedfrom%3DMSDN%26WT.mc_id%3Dtwitter">
+					<span class="icon">
+						<span class="docon docon-brand-twitter has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Twitter</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" data-bi-name="linkedin" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fms178472(v%3Dvs.140)%3Fredirectedfrom%3DMSDN%26WT.mc_id%3Dlinkedin">
+					<span class="icon">
+						<span class="docon docon-brand-linkedin has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" data-bi-name="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fms178472(v%3Dvs.140)%3Fredirectedfrom%3DMSDN%26WT.mc_id%3Dfacebook">
+					<span class="icon">
+						<span class="docon docon-brand-facebook has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Facebook</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" data-bi-name="email" href="mailto:?subject=%5BShared%20Article%5D%20ASP.NET%20Page%20Life%20Cycle%20Overview%20%7C%20Microsoft%20Docs&amp;body=ASP.NET%20Page%20Life%20Cycle%20Overview%20%7C%20Microsoft%20Docs%0A%0Ahttps%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fms178472(v%3Dvs.140)%3Fredirectedfrom%3DMSDN%26WT.mc_id%3Demail">
+					<span class="icon">
+						<span class="docon docon-mail-message-fill has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Email</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>				</li>
+			</ul>
+			<button type="button" class="has-border contents-button button is-small is-text is-hidden-tablet has-inner-focus" aria-label="Contents" data-bi-name="contents-expand">
+				<span class="icon">
+					<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+				</span>
+				<span>Table of contents</span>
+			</button>
+			<div class="is-invisible"></div>
+			<div class="is-hidden-tablet level-item is-flexible level-right">
+				<button type="button" class="page-actions-button button is-small is-text is-hidden-tablet has-inner-focus has-border is-full-height  has-margin-left-small" aria-label="Page Actions" data-bi-name="pageactions">
+					<span class="icon">
+						<span class="docon docon-more-vertical" aria-hidden="true"></span>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+			
+			</div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-top-padding  has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile ">
+
+			<div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="is-fixed is-flex is-flex-column" role="navigation" aria-label="Primary" style="width: 267.1px; top: 24px; bottom: 24px;"></nav>
+			</div>
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns is-gapless-mobile has-large-gaps ">
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+
+					<main id="main" role="main" class="content " data-bi-name="content" dir="ltr" lang="en-us">
+
+
+
+						<h1 id="aspnet-page-life-cycle-overview">ASP.NET Page Life Cycle Overview</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" dir="ltr" lang="en-us">
+							<li>
+								<time class="" data-article-date="" aria-label="Article review date" datetime="2014-12-04T00:00:00.000Z" data-article-date-source="ms.date">12/04/2014</time>
+							</li>
+								<li class="readingTime">14 minutes to read</li>
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+							<h3>In this article</h3>
+						<ol><li><a href="#general-page-life-cycle-stages">General Page Life-Cycle Stages</a></li><li><a href="#life-cycle-events">Life-Cycle Events</a></li><li><a href="#additional-page-life-cycle-considerations">Additional Page Life Cycle Considerations</a></li><li><a href="#catch-up-events-for-added-controls">Catch-Up Events for Added Controls</a></li><li><a href="#data-binding-events-for-data-bound-controls">Data Binding Events for Data-Bound Controls</a></li><li><a href="#nested-data-bound-controls">Nested Data-Bound Controls</a></li><li><a href="#login-control-events">Login Control Events</a></li><li><a href="#see-also">See Also</a></li></ol></nav>
+
+						<!-- <content> -->
+							<p>When an ASP.NET page runs, the page goes through a life cycle 
+in which it performs a series of processing steps. These include 
+initialization, instantiating controls, restoring and maintaining state,
+ running event handler code, and rendering. It is important for you to 
+understand the page life cycle so that you can write code at the 
+appropriate life-cycle stage for the effect you intend.</p>
+<p>If you develop custom controls, you must be familiar with the page 
+life cycle in order to correctly initialize controls, populate control 
+properties with view-state data, and run control behavior code. The life
+ cycle of a control is based on the page life cycle, and the page raises
+ many of the events that you need to handle in a custom control.</p>
+<p>This topic contains the following sections:</p>
+<ul>
+<li><p>General Page Life-cycle Stages</p>
+</li>
+<li><p>Life-cycle Events</p>
+</li>
+<li><p>Additional Page Life Cycle Considerations</p>
+</li>
+<li><p>Catch-Up Events for Added Controls</p>
+</li>
+<li><p>Data Binding Events for Data-Bound Controls</p>
+</li>
+<li><p>Login Control Events</p>
+</li>
+</ul>
+<h2 id="general-page-life-cycle-stages" class="heading-anchor"><a class="docon docon-link" href="#general-page-life-cycle-stages" aria-labelledby="general-page-life-cycle-stages"></a>General Page Life-Cycle Stages</h2>
+<p>In general terms, the page goes through the stages outlined in the 
+following table. In addition to the page life-cycle stages, there are 
+application stages that occur before and after a request but are not 
+specific to a page. For more information, see <a href="http://go.microsoft.com/fwlink/?linkid=133108" data-linktype="external">Introduction to the ASP.NET Application Life Cycle</a> and <a href="https://docs.microsoft.com/en-us/previous-versions/bb470252(v=vs.140)" data-linktype="relative-path">ASP.NET Application Life Cycle Overview for IIS 7.0</a>.</p>
+<p>Some parts of the life cycle occur only when a page is processed as a
+ postback. For postbacks, the page life cycle is the same during a 
+partial-page postback (as when you use an <a href="https://msdn.microsoft.com/en-us/library/bb359258(v=vs.140)" data-linktype="external">UpdatePanel</a> control) as it is during a full-page postback.</p>
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Table 1</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>Stage</strong></p></th>
+<th><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Page request</p></td>
+<td><p>The page request occurs before the page life cycle begins. When 
+the page is requested by a user, ASP.NET determines whether the page 
+needs to be parsed and compiled (therefore beginning the life of a 
+page), or whether a cached version of the page can be sent in response 
+without running the page.</p></td>
+</tr>
+<tr class="even">
+<td><p>Start</p></td>
+<td><p>In the start stage, page properties such as <a href="https://msdn.microsoft.com/en-us/library/xc67sd5e(v=vs.140)" data-linktype="external">Request</a> and <a href="https://msdn.microsoft.com/en-us/library/3tbxeb64(v=vs.140)" data-linktype="external">Response</a> are set. At this stage, the page also determines whether the request is a postback or a new request and sets the <a href="https://msdn.microsoft.com/en-us/library/5zabsw0t(v=vs.140)" data-linktype="external">IsPostBack</a> property. The page also sets the <a href="https://msdn.microsoft.com/en-us/library/ey25safb(v=vs.140)" data-linktype="external">UICulture</a> property.</p></td>
+</tr>
+<tr class="odd">
+<td><p>Initialization</p></td>
+<td><p>During page initialization, controls on the page are available and each control's <a href="https://msdn.microsoft.com/en-us/library/931h7hde(v=vs.140)" data-linktype="external">UniqueID</a>
+ property is set. A master page and themes are also applied to the page 
+if applicable. If the current request is a postback, the postback data 
+has not yet been loaded and control property values have not been 
+restored to the values from view state.</p></td>
+</tr>
+<tr class="even">
+<td><p>Load</p></td>
+<td><p>During load, if the current request is a postback, control 
+properties are loaded with information recovered from view state and 
+control state.</p></td>
+</tr>
+<tr class="odd">
+<td><p>Postback event handling</p></td>
+<td><p>If the request is a postback, control event handlers are called. After that, the <a href="https://msdn.microsoft.com/en-us/library/89h875wz(v=vs.140)" data-linktype="external">Validate</a> method of all validator controls is called, which sets the <a href="https://msdn.microsoft.com/en-us/library/easxz4ye(v=vs.140)" data-linktype="external">IsValid</a>
+ property of individual validator controls and of the page. (There is an
+ exception to this sequence: the handler for the event that caused 
+validation is called after validation.)</p></td>
+</tr>
+<tr class="even">
+<td><p>Rendering</p></td>
+<td><p>Before rendering, view state is saved for the page and all controls. During the rendering stage, the page calls the <a href="https://msdn.microsoft.com/en-us/library/26zakx94(v=vs.140)" data-linktype="external">Render</a> method for each control, providing a text writer that writes its output to the <a href="https://msdn.microsoft.com/en-us/library/56259h7z(v=vs.140)" data-linktype="external">OutputStream</a> object of the page's <a href="https://msdn.microsoft.com/en-us/library/3tbxeb64(v=vs.140)" data-linktype="external">Response</a> property.</p></td>
+</tr>
+<tr class="odd">
+<td><p>Unload</p></td>
+<td><p>The <a href="https://msdn.microsoft.com/en-us/library/fxf48ycz(v=vs.140)" data-linktype="external">Unload</a>
+ event is raised after the page has been fully rendered, sent to the 
+client, and is ready to be discarded. At this point, page properties 
+such as <a href="https://msdn.microsoft.com/en-us/library/3tbxeb64(v=vs.140)" data-linktype="external">Response</a> and <a href="https://msdn.microsoft.com/en-us/library/xc67sd5e(v=vs.140)" data-linktype="external">Request</a> are unloaded and cleanup is performed.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="life-cycle-events" class="heading-anchor"><a class="docon docon-link" href="#life-cycle-events" aria-labelledby="life-cycle-events"></a>Life-Cycle Events</h2>
+<p>Within each stage of the life cycle of a page, the page raises events
+ that you can handle to run your own code. For control events, you bind 
+the event handler to the event, either declaratively using attributes 
+such as onclick, or in code.</p>
+<p>Pages also support automatic event wire-up, meaning that ASP.NET 
+looks for methods with particular names and automatically runs those 
+methods when certain events are raised. If the AutoEventWireup attribute
+ of the <a href="https://msdn.microsoft.com/en-us/library/ydy4x04a(v=vs.140)" data-linktype="external">@&nbsp;Page</a>
+ directive is set to true, page events are automatically bound to 
+methods that use the naming convention of Page_event, such as Page_Load 
+and Page_Init. For more information on automatic event wire-up, see <a href="https://docs.microsoft.com/en-us/previous-versions/y3bwdsh3(v=vs.140)" data-linktype="relative-path">ASP.NET Web Forms Server Control Event Model</a>.</p>
+<p>The following table lists the page life-cycle events that you will 
+use most frequently. There are more events than those listed; however, 
+they are not used for most page-processing scenarios. Instead, they are 
+primarily used by server controls on the ASP.NET Web page to initialize 
+and render themselves. If you want to write custom ASP.NET server 
+controls, you need to understand more about these events. For 
+information about creating custom controls, see <a href="https://docs.microsoft.com/en-us/previous-versions/zt27tfhy(v=vs.140)" data-linktype="relative-path">Developing Custom ASP.NET Server Controls</a>.</p>
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Table 2</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>Page Event</strong></p></th>
+<th><p><strong>Typical Use</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/7x9azc75(v=vs.140)" data-linktype="external">PreInit</a></p></td>
+<td><p>Raised after the start stage is complete and before the initialization stage begins.</p>
+<p>Use this event for the following:</p>
+<ul>
+<li><p>Check the <a href="https://msdn.microsoft.com/en-us/library/5zabsw0t(v=vs.140)" data-linktype="external">IsPostBack</a> property to determine whether this is the first time the page is being processed. The <a href="https://msdn.microsoft.com/en-us/library/4kacsys6(v=vs.140)" data-linktype="external">IsCallback</a> and <a href="https://msdn.microsoft.com/en-us/library/1c23y6wz(v=vs.140)" data-linktype="external">IsCrossPagePostBack</a> properties have also been set at this time.</p></li>
+<li><p>Create or re-create dynamic controls.</p></li>
+<li><p>Set a master page dynamically.</p></li>
+<li><p>Set the <a href="https://msdn.microsoft.com/en-us/library/kd4hkt0b(v=vs.140)" data-linktype="external">Theme</a> property dynamically.</p></li>
+<li><p>Read or set profile property values.</p>
+<div class="alert is-info">
+<p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+<p>If the request is a postback, the values of the controls have not yet
+ been restored from view state. If you set a control property at this 
+stage, its value might be overwritten in the next event.</p>
+</div>
+</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a></p></td>
+<td><p>Raised after all controls have been initialized and any skin settings have been applied. The <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> event of individual controls occurs before the <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> event of the page.</p>
+<p>Use this event to read or initialize control properties.</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/3wf2z4k4(v=vs.140)" data-linktype="external">InitComplete</a></p></td>
+<td><p>Raised at the end of the page's initialization stage. Only one operation takes place between the <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> and <a href="https://msdn.microsoft.com/en-us/library/3wf2z4k4(v=vs.140)" data-linktype="external">InitComplete</a>
+ events: tracking of view state changes is turned on. View state 
+tracking enables controls to persist any values that are 
+programmatically added to the <a href="https://msdn.microsoft.com/en-us/library/hf83c91z(v=vs.140)" data-linktype="external">ViewState</a>
+ collection. Until view state tracking is turned on, any values added to
+ view state are lost across postbacks. Controls typically turn on view 
+state tracking immediately after they raise their <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> event.</p>
+<p>Use this event to make changes to view state that you want to make sure are persisted after the next postback.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/3s4f1wwa(v=vs.140)" data-linktype="external">PreLoad</a></p></td>
+<td><p>Raised after the page loads view state for itself and all 
+controls, and after it processes postback data that is included with the
+ <a href="https://msdn.microsoft.com/en-us/library/xc67sd5e(v=vs.140)" data-linktype="external">Request</a> instance.</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a></p></td>
+<td><p>The <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> object calls the <a href="https://msdn.microsoft.com/en-us/library/ds9cf97s(v=vs.140)" data-linktype="external">OnLoad</a> method on the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> object, and then recursively does the same for each child control until the page and all controls are loaded. The <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> event of individual controls occurs after the <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> event of the page.</p>
+<p>Use the <a href="https://msdn.microsoft.com/en-us/library/ds9cf97s(v=vs.140)" data-linktype="external">OnLoad</a> event method to set properties in controls and to establish database connections.</p></td>
+</tr>
+<tr class="even">
+<td><p>Control events</p></td>
+<td><p>Use these events to handle specific control events, such as a <a href="https://msdn.microsoft.com/en-us/library/3e83tsk6(v=vs.140)" data-linktype="external">Button</a> control's <a href="https://msdn.microsoft.com/en-us/library/d02sce24(v=vs.140)" data-linktype="external">Click</a> event or a <a href="https://msdn.microsoft.com/en-us/library/4b1xz97b(v=vs.140)" data-linktype="external">TextBox</a> control's <a href="https://msdn.microsoft.com/en-us/library/81a1axdx(v=vs.140)" data-linktype="external">TextChanged</a> event.</p>
+<div class="alert is-info">
+<p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+<p>In a postback request, if the page contains validator controls, check the <a href="https://msdn.microsoft.com/en-us/library/9s0wde39(v=vs.140)" data-linktype="external">IsValid</a> property of the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> and of individual validation controls before performing any processing.</p>
+</div>
+</td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/bs9d1zcy(v=vs.140)" data-linktype="external">LoadComplete</a></p></td>
+<td><p>Raised at the end of the event-handling stage.</p>
+<p>Use this event for tasks that require that all other controls on the page be loaded.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/768a7bzf(v=vs.140)" data-linktype="external">PreRender</a></p></td>
+<td><p>Raised after the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a>
+ object has created all controls that are required in order to render 
+the page, including child controls of composite controls. (To do this, 
+the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> object calls <a href="https://msdn.microsoft.com/en-us/library/19ckw0e5(v=vs.140)" data-linktype="external">EnsureChildControls</a> for each control and for the page.)</p>
+<p>The <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> object raises the <a href="https://msdn.microsoft.com/en-us/library/768a7bzf(v=vs.140)" data-linktype="external">PreRender</a> event on the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> object, and then recursively does the same for each child control. The <a href="https://msdn.microsoft.com/en-us/library/768a7bzf(v=vs.140)" data-linktype="external">PreRender</a> event of individual controls occurs after the <a href="https://msdn.microsoft.com/en-us/library/768a7bzf(v=vs.140)" data-linktype="external">PreRender</a> event of the page.</p>
+<p>Use the event to make final changes to the contents of the page or its controls before the rendering stage begins.</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/d299wwfd(v=vs.140)" data-linktype="external">PreRenderComplete</a></p></td>
+<td><p>Raised after each data bound control whose <a href="https://msdn.microsoft.com/en-us/library/hw694zdw(v=vs.140)" data-linktype="external">DataSourceID</a> property is set calls its <a href="https://msdn.microsoft.com/en-us/library/hyyes28e(v=vs.140)" data-linktype="external">DataBind</a> method. For more information, see Data Binding Events for Data-Bound Controls later in this topic.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/9tc8ys0a(v=vs.140)" data-linktype="external">SaveStateComplete</a></p></td>
+<td><p>Raised after view state and control state have been saved for the
+ page and for all controls. Any changes to the page or controls at this 
+point affect rendering, but the changes will not be retrieved on the 
+next postback.</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/26zakx94(v=vs.140)" data-linktype="external">Render</a></p></td>
+<td><p>This is not an event; instead, at this stage of processing, the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a> object calls this method on each control. All ASP.NET Web server controls have a <a href="https://msdn.microsoft.com/en-us/library/26zakx94(v=vs.140)" data-linktype="external">Render</a> method that writes out the control's markup to send to the browser.</p>
+<p>If you create a custom control, you typically override this method to
+ output the control's markup. However, if your custom control 
+incorporates only standard ASP.NET Web server controls and no custom 
+markup, you do not need to override the <a href="https://msdn.microsoft.com/en-us/library/26zakx94(v=vs.140)" data-linktype="external">Render</a> method. For more information, see <a href="https://docs.microsoft.com/en-us/previous-versions/zt27tfhy(v=vs.140)" data-linktype="relative-path">Developing Custom ASP.NET Server Controls</a>.</p>
+<p>A user control (an .ascx file) automatically incorporates rendering, 
+so you do not need to explicitly render the control in code.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/fxf48ycz(v=vs.140)" data-linktype="external">Unload</a></p></td>
+<td><p>Raised for each control and then for the page.</p>
+<p>In controls, use this event to do final cleanup for specific controls, such as closing control-specific database connections.</p>
+<p>For the page itself, use this event to do final cleanup work, such as
+ closing open files and database connections, or finishing up logging or
+ other request-specific tasks.</p>
+<div class="alert is-info">
+<p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+<p>During the unload stage, the page and its controls have been 
+rendered, so you cannot make further changes to the response stream. If 
+you attempt to call a method such as the Response.Write method, the page
+ will throw an exception.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="additional-page-life-cycle-considerations" class="heading-anchor"><a class="docon docon-link" href="#additional-page-life-cycle-considerations" aria-labelledby="additional-page-life-cycle-considerations"></a>Additional Page Life Cycle Considerations</h2>
+<p>Individual ASP.NET server controls have their own life cycle that is similar to the page life cycle. For example, a control's <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> and <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> events occur during the corresponding page events.</p>
+<p>Although both <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> and <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> recursively occur on each control, they happen in reverse order. The <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> event (and also the <a href="https://msdn.microsoft.com/en-us/library/fxf48ycz(v=vs.140)" data-linktype="external">Unload</a> event) for each child control occur before the corresponding event is raised for its container (bottom-up). However the <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> event for a container occurs before the <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> events for its child controls (top-down). Master pages behave like child controls on a page: the master page <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> event occurs before the page <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> and <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> events, and the master page <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> event occurs after the page <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> and <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a> events.</p>
+<p>When you create a class that inherits from the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a>
+ class, in addition to handling events raised by the page, you can 
+override methods from the page's base class. For example, you can 
+override the page's <a href="https://msdn.microsoft.com/en-us/library/ms153472(v=vs.140)" data-linktype="external">InitializeCulture</a>
+ method to dynamically set culture information. Note that when an event 
+handler is created using the Page_event syntax, the base implementation 
+is implicitly called and therefore you do not need to call it in your 
+method. For example, the base page class's <a href="https://msdn.microsoft.com/en-us/library/ds9cf97s(v=vs.140)" data-linktype="external">OnLoad</a> method is always called, whether you create a Page_Load method or not. However, if you override the page <a href="https://msdn.microsoft.com/en-us/library/ds9cf97s(v=vs.140)" data-linktype="external">OnLoad</a>
+ method with the override keyword (Overrides in Visual Basic), you must 
+explicitly call the base method. For example, if you override the <a href="https://msdn.microsoft.com/en-us/library/ds9cf97s(v=vs.140)" data-linktype="external">OnLoad</a> method on the page, you must call base.Load (MyBase.Load in Visual Basic) in order for the base implementation to be run.</p>
+<p>The following illustration shows some of the most important methods of the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a>
+ class that you can override in order to add code that executes at 
+specific points in the page life cycle. (For a complete list of page 
+methods and events, see the <a href="https://msdn.microsoft.com/en-us/library/dfbt9et1(v=vs.140)" data-linktype="external">Page</a>
+ class.) The illustration also shows how these methods relate to page 
+events and to control events. The sequence of methods and events in the 
+illustration is from top to bottom, and within each row from left to 
+right.</p>
+<p><img src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/ms178472.png" alt="ASP.NET Page Life Cycle Diagram" title="ASP.NET Page Life Cycle Diagram" data-linktype="relative-path"></p>
+<h2 id="catch-up-events-for-added-controls" class="heading-anchor"><a class="docon docon-link" href="#catch-up-events-for-added-controls" aria-labelledby="catch-up-events-for-added-controls"></a>Catch-Up Events for Added Controls</h2>
+<p>If controls are created dynamically at run time or declaratively 
+within templates of data-bound controls, their events are initially not 
+synchronized with those of other controls on the page. For example, for a
+ control that is added at run time, the <a href="https://msdn.microsoft.com/en-us/library/ddx12zse(v=vs.140)" data-linktype="external">Init</a> and <a href="https://msdn.microsoft.com/en-us/library/abk3yt37(v=vs.140)" data-linktype="external">Load</a>
+ events might occur much later in the page life cycle than the same 
+events for controls created declaratively. Therefore, from the time that
+ they are instantiated, dynamically added controls and controls in 
+templates raise their events one after the other until they have caught 
+up to the event during which it was added to the <a href="https://msdn.microsoft.com/en-us/library/01d34dzb(v=vs.140)" data-linktype="external">Controls</a> collection.</p>
+<h2 id="data-binding-events-for-data-bound-controls" class="heading-anchor"><a class="docon docon-link" href="#data-binding-events-for-data-bound-controls" aria-labelledby="data-binding-events-for-data-bound-controls"></a>Data Binding Events for Data-Bound Controls</h2>
+<p>To help you understand the relationship between the page life cycle 
+and data binding events, the following table lists data-related events 
+in data-bound controls such as the <a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a>, <a href="https://msdn.microsoft.com/en-us/library/7z482d0y(v=vs.140)" data-linktype="external">DetailsView</a>, and <a href="https://msdn.microsoft.com/en-us/library/ka8cb0xz(v=vs.140)" data-linktype="external">FormView</a> controls.</p>
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Table 3</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>Control Event</strong></p></th>
+<th><p><strong>Typical Use</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/6h0fs4kf(v=vs.140)" data-linktype="external">DataBinding</a></p></td>
+<td><p>Raised after the control's <a href="https://msdn.microsoft.com/en-us/library/768a7bzf(v=vs.140)" data-linktype="external">PreRender</a> event, which occurs after the page's <a href="https://msdn.microsoft.com/en-us/library/768a7bzf(v=vs.140)" data-linktype="external">PreRender</a> event. (This applies to controls whose <a href="https://msdn.microsoft.com/en-us/library/hw694zdw(v=vs.140)" data-linktype="external">DataSourceID</a> property is set declaratively. Otherwise the event happens when you call the control's DataBind method.)</p>
+<p>This event marks the beginning of the process that binds the control 
+to the data. Use this event to manually open database connections, if 
+required, and to set parameter values dynamically before a query is run.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/hf4hys91(v=vs.140)" data-linktype="external">RowCreated</a> (<a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> only) or <a href="https://msdn.microsoft.com/en-us/library/bd27y998(v=vs.140)" data-linktype="external">ItemCreated</a> (<a href="https://msdn.microsoft.com/en-us/library/7efxhktc(v=vs.140)" data-linktype="external">DataList</a>, <a href="https://msdn.microsoft.com/en-us/library/7z482d0y(v=vs.140)" data-linktype="external">DetailsView</a>, <a href="https://msdn.microsoft.com/en-us/library/d9w2t610(v=vs.140)" data-linktype="external">SiteMapPath</a>, <a href="https://msdn.microsoft.com/en-us/library/e1zk1ey1(v=vs.140)" data-linktype="external">DataGrid</a>, <a href="https://msdn.microsoft.com/en-us/library/ka8cb0xz(v=vs.140)" data-linktype="external">FormView</a>, <a href="https://msdn.microsoft.com/en-us/library/w9283stf(v=vs.140)" data-linktype="external">Repeater</a>, and <a href="https://msdn.microsoft.com/en-us/library/bb459902(v=vs.140)" data-linktype="external">ListView</a> controls)</p></td>
+<td><p>Raised after the control's <a href="https://msdn.microsoft.com/en-us/library/6h0fs4kf(v=vs.140)" data-linktype="external">DataBinding</a> event.</p>
+<p>Use this event to manipulate content that is not dependent on data 
+binding. For example, at run time, you might programmatically add 
+formatting to a header or footer row in a <a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> control.</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/y287zyfb(v=vs.140)" data-linktype="external">RowDataBound</a> (<a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> only) or <a href="https://msdn.microsoft.com/en-us/library/ww0zbx03(v=vs.140)" data-linktype="external">ItemDataBound</a> (<a href="https://msdn.microsoft.com/en-us/library/7efxhktc(v=vs.140)" data-linktype="external">DataList</a>, <a href="https://msdn.microsoft.com/en-us/library/d9w2t610(v=vs.140)" data-linktype="external">SiteMapPath</a>, <a href="https://msdn.microsoft.com/en-us/library/e1zk1ey1(v=vs.140)" data-linktype="external">DataGrid</a>, <a href="https://msdn.microsoft.com/en-us/library/w9283stf(v=vs.140)" data-linktype="external">Repeater</a>, and <a href="https://msdn.microsoft.com/en-us/library/bb459902(v=vs.140)" data-linktype="external">ListView</a> controls)</p></td>
+<td><p>Raised after the control's <a href="https://msdn.microsoft.com/en-us/library/hf4hys91(v=vs.140)" data-linktype="external">RowCreated</a> or <a href="https://msdn.microsoft.com/en-us/library/bd27y998(v=vs.140)" data-linktype="external">ItemCreated</a> event.</p>
+<p>When this event occurs, data is available in the row or item, so you can format data or set the <a href="https://msdn.microsoft.com/en-us/library/b58sx361(v=vs.140)" data-linktype="external">FilterExpression</a> property on child data source controls in order to display related data within the row or item.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/70xh3bsc(v=vs.140)" data-linktype="external">DataBound</a></p></td>
+<td><p>Raised at the end of data-binding operations in a data-bound control. In a <a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> control, data binding is complete for all rows and any child controls.</p>
+<p>Use this event to format data-bound content or to initiate data 
+binding in other controls that depend on values from the current 
+control's content. (For more information, see Catch-Up Events for Added 
+Controls earlier in this topic.)</p></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nested-data-bound-controls" class="heading-anchor"><a class="docon docon-link" href="#nested-data-bound-controls" aria-labelledby="nested-data-bound-controls"></a>Nested Data-Bound Controls</h2>
+<p>If a child control has been data bound, but its container control has
+ not yet been data bound, the data in the child control and the data in 
+its container control can be out of sync. This is true particularly if 
+the data in the child control performs processing based on a data-bound 
+value in the container control.</p>
+<p>For example, suppose you have a <a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> control that displays a company record in each row, and it displays a list of the company officers in a <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control. To fill the list of officers, you would bind the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control to a data source control (such as <a href="https://msdn.microsoft.com/en-us/library/cd0cb3we(v=vs.140)" data-linktype="external">SqlDataSource</a>) that retrieves the company officer data using the company ID in a query.</p>
+<p>If the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control's data-binding properties, such as <a href="https://msdn.microsoft.com/en-us/library/5f8yah9d(v=vs.140)" data-linktype="external">DataSourceID</a> and <a href="https://msdn.microsoft.com/en-us/library/s3ht3ykx(v=vs.140)" data-linktype="external">DataMember</a>, are set declaratively, the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control will try to bind to its data source during the containing row's <a href="https://msdn.microsoft.com/en-us/library/6h0fs4kf(v=vs.140)" data-linktype="external">DataBinding</a> event. However, the CompanyID field of the row does not contain a value until the <a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> control's <a href="https://msdn.microsoft.com/en-us/library/y287zyfb(v=vs.140)" data-linktype="external">RowDataBound</a> event occurs. In this case, the child control (the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control) is bound before the containing control (the <a href="https://msdn.microsoft.com/en-us/library/4w7ya1ts(v=vs.140)" data-linktype="external">GridView</a> control) is bound, so their data-binding stages are out of sync.</p>
+<p>To avoid this condition, put the data source control for the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control in the same template item as the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control itself, and do not set the data binding properties of the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> declaratively. Instead, set them programmatically at run time during the <a href="https://msdn.microsoft.com/en-us/library/y287zyfb(v=vs.140)" data-linktype="external">RowDataBound</a> event, so that the <a href="https://msdn.microsoft.com/en-us/library/s2dd3bzt(v=vs.140)" data-linktype="external">ListBox</a> control does not bind to its data until the CompanyID information is available.</p>
+<p>For more information, see <a href="https://msdn.microsoft.com/en-us/library/ms228089(v=vs.140)" data-linktype="external">Binding to Data Using a Data Source Control</a>.</p>
+<h2 id="login-control-events" class="heading-anchor"><a class="docon docon-link" href="#login-control-events" aria-labelledby="login-control-events"></a>Login Control Events</h2>
+<p>The <a href="https://msdn.microsoft.com/en-us/library/t863ehhh(v=vs.140)" data-linktype="external">Login</a>
+ control can use settings in the Web.config file to manage membership 
+authentication automatically. However, if your application requires you 
+to customize how the control works, or if you want to understand how <a href="https://msdn.microsoft.com/en-us/library/t863ehhh(v=vs.140)" data-linktype="external">Login</a> control events relate to the page life cycle, you can use the events listed in the following table.</p>
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Table 4</caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>Control Event</strong></p></th>
+<th><p><strong>Typical Use</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/2st88fky(v=vs.140)" data-linktype="external">LoggingIn</a></p></td>
+<td><p>Raised during a postback, after the page's <a href="https://msdn.microsoft.com/en-us/library/bs9d1zcy(v=vs.140)" data-linktype="external">LoadComplete</a> event has occurred. This event marks the beginning of the login process.</p>
+<p>Use this event for tasks that must occur prior to beginning the authentication process.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/2cb3cyf1(v=vs.140)" data-linktype="external">Authenticate</a></p></td>
+<td><p>Raised after the <a href="https://msdn.microsoft.com/en-us/library/2st88fky(v=vs.140)" data-linktype="external">LoggingIn</a> event.</p>
+<p>Use this event to override or enhance the default authentication behavior of a <a href="https://msdn.microsoft.com/en-us/library/t863ehhh(v=vs.140)" data-linktype="external">Login</a> control.</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/04tya5te(v=vs.140)" data-linktype="external">LoggedIn</a></p></td>
+<td><p>Raised after the user name and password have been authenticated.</p>
+<p>Use this event to redirect to another page or to dynamically set the 
+text in the control. This event does not occur if there is an error or 
+if authentication fails.</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="https://msdn.microsoft.com/en-us/library/h75e0hw1(v=vs.140)" data-linktype="external">LoginError</a></p></td>
+<td><p>Raised if authentication was not successful.</p>
+<p>Use this event to set text in the control that explains the problem or to direct the user to a different page.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="see-also" class="heading-anchor"><a class="docon docon-link" href="#see-also" aria-labelledby="see-also"></a>See Also</h2>
+<h4 id="reference" class="heading-anchor"><a class="docon docon-link" href="#reference" aria-labelledby="reference"></a>Reference</h4>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/7kh55542(v=vs.140)" data-linktype="relative-path">Validating User Input in ASP.NET Web Pages</a></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/ms178329(v=vs.140)" data-linktype="relative-path">ASP.NET Login Controls Overview</a></p>
+<h4 id="concepts" class="heading-anchor"><a class="docon docon-link" href="#concepts" aria-labelledby="concepts"></a>Concepts</h4>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/y3bwdsh3(v=vs.140)" data-linktype="relative-path">ASP.NET Web Forms Server Control Event Model</a></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/swe97x0b(v=vs.140)" data-linktype="relative-path">Page and Application Context in ASP.NET Web Applications</a></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/bb386448(v=vs.140)" data-linktype="relative-path">ASP.NET View State Overview</a></p>
+<h4 id="other-resources" class="heading-anchor"><a class="docon docon-link" href="#other-resources" aria-labelledby="other-resources"></a>Other Resources</h4>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/zt27tfhy(v=vs.140)" data-linktype="relative-path">Developing Custom ASP.NET Server Controls</a></p>
+<p><a href="https://msdn.microsoft.com/en-us/library/fy30at8h(v=vs.140)" data-linktype="external">ASP.NET Page Syntax</a></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/xax2hw3x(v=vs.140)" data-linktype="relative-path">Server Event Handling in ASP.NET Web Forms Pages</a></p>
+<p><a href="https://msdn.microsoft.com/en-us/library/ms228089(v=vs.140)" data-linktype="external">Binding to Data Using a Data Source Control</a></p>
+
+						<!-- </content> -->
+
+						</main>
+
+						<!-- recommended content page section -->
+
+							<nav data-bi-name="recommendation-bottom" id="recommended-content-center" class="is-hidden-desktop" aria-labelledby="recommended-content-center-title" hidden="">
+								<h3 id="recommended-content-center-title" class="is-size-2 has-margin-top-large has-margin-bottom-small">Related Articles</h3>
+							</nav>
+
+						<!-- end recommended content page section -->
+
+						<!-- page rating section -->
+						<!-- end page rating section -->
+
+
+						<!-- feedback section -->
+
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+						<div class="footerContainer is-visible-interactive has-default-focus ">
+<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/previous-versions/ms178472(v=vs.140)?redirectedfrom=MSDN" data-bi-name="select-locale"><span class="icon docon docon-world is-size-4 has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text">English (United States)</span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light has-margin-right-small">
+						<span class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>© Microsoft 2020</li>
+    </ul>
+</footer>
+						</div>
+					</div>
+
+					<div class="is-size-7 right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+						<div id="affixed-right-container" class="doc-outline is-fixed is-vertically-scrollable" style="width: 141.05px; top: 24px; bottom: 24px;">
+								<nav data-bi-name="recommendation-sidebar" id="recommended-content-nav" role="navigation" aria-labelledby="recommended-content-nav-title" hidden="">
+									<h3 id="recommended-content-nav-title">Related Articles</h3>
+								</nav>
+							<nav id="side-doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+								<h3>In this article</h3>
+							<ol><li class="selected"><a href="#general-page-life-cycle-stages">General Page Life-Cycle Stages</a></li><li class=""><a href="#life-cycle-events">Life-Cycle Events</a></li><li class=""><a href="#additional-page-life-cycle-considerations">Additional Page Life Cycle Considerations</a></li><li class=""><a href="#catch-up-events-for-added-controls">Catch-Up Events for Added Controls</a></li><li class=""><a href="#data-binding-events-for-data-bound-controls">Data Binding Events for Data-Bound Controls</a></li><li class=""><a href="#nested-data-bound-controls">Nested Data-Bound Controls</a></li><li class=""><a href="#login-control-events">Login Control Events</a></li><li class=""><a href="#see-also">See Also</a></li></ol></nav>
+						</div>
+					</div>
+
+					<!--end of div.columns -->
+				</div>
+
+			<!--end of .primary-holder -->
+			</section>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div id="openFeedbackContainer" class="openfeedback-container"></div>
+
+	<div class="footerContainer has-default-focus is-hidden-interactive ">
+<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/previous-versions/ms178472(v=vs.140)?redirectedfrom=MSDN" data-bi-name="select-locale"><span class="icon docon docon-world is-size-4 has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text">English (United States)</span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light has-margin-right-small">
+						<span class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>© Microsoft 2020</li>
+    </ul>
+</footer>
+	</div>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+
+
+<div class="usabilla_live_button_container" role="button" tabindex="0" style="z-index: 99999990; right: 0px; top: 50%; margin-top: 0px; position: fixed; width: 0px; height: 0px; display: none;" aria-label="Usabilla Feedback Button"><iframe src="ASP.NET%20Page%20Life%20Cycle%20Overview%20Microsoft%20Docs_files/ms178472vvs_002.htm" style="width: 0px; height: 0px; margin: 0px; padding: 0px; border: 0px none; overflow: hidden; z-index: 9998; position: absolute; left: 0px; top: 0px; box-shadow: 0px 0px 0px; background-color: transparent;" marginwidth="0" marginheight="0" scrolling="no" data-tags="right" title="Usabilla Feedback Button" frameborder="0"></iframe></div></body></html>
