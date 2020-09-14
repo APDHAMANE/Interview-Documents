@@ -1,0 +1,53 @@
+Install following packages :-
+	1. Microsoft.EntityFrameworkCore
+	2. Microsoft.EntityFrameworkCore.SqlServer
+	3. Microsoft.EntityFrameworkCore.Tools
+	
+Add Connection String into appsettings.json file.
+	e.g. 
+		"ConnectionStrings": {
+			"Dev": "Server=ADMIN-PC\\SQLEXPRESS; Database=Database_Name; Trusted_Connection=True; MultipleActiveResultSets=True;"
+		}
+		
+Entity Framework Core does not support DB First Approach. It supports only Code First Approach.
+	Create a Model.
+		e.g.
+			public class Employee {
+				[Key]
+				public int EmployeeId { get; set; }
+
+				[Required(ErrorMessage = "Please Enter First Name.")]
+				[DisplayName("First Name")]
+				[Column(TypeName = "varchar(100)")]
+				public string FirstName { get; set; }
+
+				[Required(ErrorMessage = "Please Enter Last Name.")]
+				[DisplayName("Last Name")]
+				[Column(TypeName ="varchar(100)")]
+				public string LastName { get; set; }
+
+				[Required(ErrorMessage ="Please Enter Age")]
+				public int Age { get; set; }
+			}
+		
+	Create a class - DBNameDBContext which is going to inherit from DbContext which is present in Microsoft.EntityFrameworkCore.
+		e.g.
+			public class EmployeeDBContext : DbContext {
+				public EmployeeDBContext(DbContextOptions<EmployeeDBContext> dbContextOptions) : base(dbContextOptions) {
+
+				}
+
+				public DbSet<Employee> Employees { get; set; }
+			}
+			
+Make necessary changes in Startup.cs file.
+	e.g.
+		public void ConfigureServices(IServiceCollection services) {
+            services.AddControllersWithViews();
+			
+			// The following line uses Dependency Injection.
+			// Have a detail understanding about Dependency Injection & understand how it is used here.
+            services.AddDbContext<EmployeeDBContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("Dev")));
+        }
+
+Create a Controller using EntityFramework scaffolding template.
